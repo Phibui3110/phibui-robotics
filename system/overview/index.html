@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simulation &mdash; Phibui Robotics Lab 0.1 documentation</title>
+  <title>Overview &mdash; Phibui Robotics Lab 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -24,8 +24,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Overview" href="../overview/index.html" />
-    <link rel="prev" title="Control" href="../control/index.html" /> 
+    <link rel="next" title="Tutorials" href="../../tutorials/index.html" />
+    <link rel="prev" title="Simulation" href="../simulation/index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -59,8 +59,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../software/index.html">Software</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../perception/index.html">Perception</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../control/index.html">Control</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../simulation/index.html">Simulation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subsystems">Subsystems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#system-architecture-diagram">System Architecture Diagram</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -92,9 +96,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">System Architecture</a></li>
-      <li class="breadcrumb-item active">Simulation</li>
+      <li class="breadcrumb-item active">Overview</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/system/simulation/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/system/overview/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -102,17 +106,36 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="simulation">
-<h1>Simulation<a class="headerlink" href="#simulation" title="Link to this heading"></a></h1>
-<p>This section describes the simulation environment used for testing and development of the robotics platform, including setup instructions, usage guidelines, and integration with the control systems</p>
+  <section id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h1>
+<p>The autonomous vehicle system is composed of several subsystems
+that work together to perceive the environment and control the vehicle.</p>
+<section id="subsystems">
+<h2>Subsystems<a class="headerlink" href="#subsystems" title="Link to this heading"></a></h2>
+<p>The system consists of the following main subsystems:</p>
+<ul class="simple">
+<li><p><strong>Perception</strong>
+Processes camera data and extracts useful information from the environment.</p></li>
+<li><p><strong>State Estimation</strong>
+Estimates the current state of the vehicle using sensor data such as the IMU.</p></li>
+<li><p><strong>Control</strong>
+Computes steering and throttle commands based on perception and state information.</p></li>
+<li><p><strong>Hardware Interface</strong>
+Communicates with the STM32 microcontroller to control actuators.</p></li>
+</ul>
+</section>
+<section id="system-architecture-diagram">
+<h2>System Architecture Diagram<a class="headerlink" href="#system-architecture-diagram" title="Link to this heading"></a></h2>
+<p>The following diagram shows the high-level architecture of the system.</p>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../control/index.html" class="btn btn-neutral float-left" title="Control" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../overview/index.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../simulation/index.html" class="btn btn-neutral float-left" title="Simulation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../tutorials/index.html" class="btn btn-neutral float-right" title="Tutorials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
