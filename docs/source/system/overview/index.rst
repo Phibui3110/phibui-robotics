@@ -27,8 +27,7 @@ System Architecture Diagram
 
 The following diagram shows the high-level architecture of the system.
 
-.. mermaid:
-
+  .. mermaid:
    flowchart LR
 
       Camera --> Perception
