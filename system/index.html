@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog &mdash; Phibui Robotics Lab 0.1 documentation</title>
+  <title>System Architecture &mdash; Phibui Robotics Lab 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
 
@@ -19,7 +19,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Setting Up Sphinx Documentation for Phibui Robotics Lab" href="../learning_notes/build_website/setup_sphinx_documentation.html" /> 
+    <link rel="next" title="Hardware" href="hardware/index.html" />
+    <link rel="prev" title="Experiments" href="../projects/autonomous_vehicle/experiments.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,8 +48,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Projects</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">System Architecture</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../system/index.html">System Architecture</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">System Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hardware/index.html">Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software/index.html">Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perception/index.html">Perception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="control/index.html">Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulation/index.html">Simulation</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
@@ -59,10 +67,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../learning_notes/index.html">Learning Notes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Blog</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Blog</a><ul class="simple">
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../blog/index.html">Blog</a></li>
 </ul>
 
         </div>
@@ -79,9 +85,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Blog</li>
+      <li class="breadcrumb-item active">System Architecture</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/blog/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/system/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -89,19 +95,46 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="blog">
-<h1>Blog<a class="headerlink" href="#blog" title="Link to this heading"></a></h1>
-<p>This blog documents the journey of building robotics systems from scratch.</p>
-<p>Topics include:</p>
+  <section id="system-architecture">
+<h1>System Architecture<a class="headerlink" href="#system-architecture" title="Link to this heading"></a></h1>
+<p>This section describes the engineering architecture of the robotics platform.</p>
+<p>It includes documentation for:</p>
 <ul class="simple">
-<li><p>project progress logs</p></li>
-<li><p>engineering challenges</p></li>
-<li><p>debugging stories</p></li>
-<li><p>lessons learned while building autonomous vehicles</p></li>
+<li><p>Hardware systems</p></li>
+<li><p>Software architecture</p></li>
+<li><p>Perception pipeline</p></li>
+<li><p>Control systems</p></li>
+<li><p>Simulation environment</p></li>
 </ul>
-<p>The goal is to document the real engineering process,
-including both successes and failures.</p>
 <div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hardware/index.html">Hardware</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="software/index.html">Software</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Perception</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="perception/index.html">Perception</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Control</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="control/index.html">Control</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Simulation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="simulation/index.html">Simulation</a></li>
+</ul>
 </div>
 </section>
 
@@ -109,7 +142,8 @@ including both successes and failures.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../learning_notes/build_website/setup_sphinx_documentation.html" class="btn btn-neutral float-left" title="Setting Up Sphinx Documentation for Phibui Robotics Lab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../projects/autonomous_vehicle/experiments.html" class="btn btn-neutral float-left" title="Experiments" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hardware/index.html" class="btn btn-neutral float-right" title="Hardware" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

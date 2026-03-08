@@ -1,31 +1,50 @@
 Phibui Robotics Lab
 ===================
 
-Welcome to **Phibui Robotics Lab**, a personal robotics research and
-engineering documentation site.
+Welcome to **Phibui Robotics Lab** — a robotics engineering documentation portal.
 
-This website documents my work on robotics systems, autonomous vehicles,
-and embedded development.
-
-Main Topics
------------
-
-Main topics covered in this site:
+This website documents my work in:
 
 - Autonomous Vehicles
+- Robotics Engineering
 - ROS2 Development
-- Ubuntu Robotics Environment
 - Embedded Systems
-- Robotics Learning Notes
+- Simulation and Control Systems
 
-Documentation
--------------
+
+Contents
+========
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents
+   :caption: Projects
 
    projects/index
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: System Architecture
+
+   system/index
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Tutorials
+
    tutorials/index
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Learning Notes
+
    learning_notes/index
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Blog
+
    blog/index
