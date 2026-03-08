@@ -11,6 +11,8 @@
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
 
   
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=2709fde1"></script>
       <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
@@ -31,6 +33,7 @@
           
           <a href="../../index.html" class="icon icon-home">
             Phibui Robotics Lab
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -90,9 +93,9 @@
            <div itemprop="articleBody">
              
   <section id="setting-up-sphinx-documentation-for-phibui-robotics-lab">
-<h1>Setting Up Sphinx Documentation for Phibui Robotics Lab<a class="headerlink" href="#setting-up-sphinx-documentation-for-phibui-robotics-lab" title="Link to this heading">¶</a></h1>
+<h1>Setting Up Sphinx Documentation for Phibui Robotics Lab<a class="headerlink" href="#setting-up-sphinx-documentation-for-phibui-robotics-lab" title="Link to this heading"></a></h1>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
 <p>In Phase 2 of the <strong>phibui-robotics</strong> project, the goal was to set up a
 documentation system for the website <strong>Phibui Robotics Lab</strong> using <strong>Sphinx</strong>
 and <strong>reStructuredText (RST)</strong>.</p>
@@ -103,7 +106,7 @@ automatically converted into a static HTML website.</p>
 the website.</p>
 </section>
 <section id="development-environment">
-<h2>Development Environment<a class="headerlink" href="#development-environment" title="Link to this heading">¶</a></h2>
+<h2>Development Environment<a class="headerlink" href="#development-environment" title="Link to this heading"></a></h2>
 <p>Operating System:</p>
 <ul class="simple">
 <li><p>Ubuntu 22.04</p></li>
@@ -145,9 +148,9 @@ the website.</p>
 </div>
 </section>
 <section id="key-steps-in-phase-2">
-<h2>Key Steps in Phase 2<a class="headerlink" href="#key-steps-in-phase-2" title="Link to this heading">¶</a></h2>
+<h2>Key Steps in Phase 2<a class="headerlink" href="#key-steps-in-phase-2" title="Link to this heading"></a></h2>
 <section id="create-a-python-virtual-environment">
-<h3>1. Create a Python virtual environment<a class="headerlink" href="#create-a-python-virtual-environment" title="Link to this heading">¶</a></h3>
+<h3>1. Create a Python virtual environment<a class="headerlink" href="#create-a-python-virtual-environment" title="Link to this heading"></a></h3>
 <p>A dedicated Python environment was created to isolate the documentation
 dependencies from the system Python.</p>
 <p>Command used:</p>
@@ -162,7 +165,7 @@ dependencies from the system Python.</p>
 within the project.</p>
 </section>
 <section id="install-sphinx">
-<h3>2. Install Sphinx<a class="headerlink" href="#install-sphinx" title="Link to this heading">¶</a></h3>
+<h3>2. Install Sphinx<a class="headerlink" href="#install-sphinx" title="Link to this heading"></a></h3>
 <p>Sphinx is the documentation generator that converts RST files into HTML.</p>
 <p>Installation command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span>
@@ -174,7 +177,7 @@ within the project.</p>
 </div>
 </section>
 <section id="install-documentation-theme">
-<h3>3. Install Documentation Theme<a class="headerlink" href="#install-documentation-theme" title="Link to this heading">¶</a></h3>
+<h3>3. Install Documentation Theme<a class="headerlink" href="#install-documentation-theme" title="Link to this heading"></a></h3>
 <p>The <strong>ReadTheDocs theme</strong> was installed to provide a professional-looking
 documentation interface.</p>
 <p>Command:</p>
@@ -191,7 +194,7 @@ documentation interface.</p>
 </div>
 </section>
 <section id="initialize-the-sphinx-project">
-<h3>4. Initialize the Sphinx Project<a class="headerlink" href="#initialize-the-sphinx-project" title="Link to this heading">¶</a></h3>
+<h3>4. Initialize the Sphinx Project<a class="headerlink" href="#initialize-the-sphinx-project" title="Link to this heading"></a></h3>
 <p>Sphinx was initialized using the command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="o">-</span><span class="n">quickstart</span>
 </pre></div>
@@ -207,7 +210,7 @@ was enabled.</p>
 </ul>
 </section>
 <section id="organize-documentation-sections">
-<h3>5. Organize Documentation Sections<a class="headerlink" href="#organize-documentation-sections" title="Link to this heading">¶</a></h3>
+<h3>5. Organize Documentation Sections<a class="headerlink" href="#organize-documentation-sections" title="Link to this heading"></a></h3>
 <p>The documentation was divided into four main sections:</p>
 <ul class="simple">
 <li><p>Projects</p></li>
@@ -226,7 +229,7 @@ was enabled.</p>
 <p>Each section acts as a <strong>documentation hub</strong> for related pages.</p>
 </section>
 <section id="configure-navigation-with-toctree">
-<h3>6. Configure Navigation with Toctree<a class="headerlink" href="#configure-navigation-with-toctree" title="Link to this heading">¶</a></h3>
+<h3>6. Configure Navigation with Toctree<a class="headerlink" href="#configure-navigation-with-toctree" title="Link to this heading"></a></h3>
 <p>Sphinx uses the <code class="docutils literal notranslate"><span class="pre">toctree</span></code> directive to build the website navigation.</p>
 <p>Example in <code class="docutils literal notranslate"><span class="pre">index.rst</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">toctree</span><span class="p">::</span>
@@ -242,7 +245,7 @@ was enabled.</p>
 <p>This creates the sidebar navigation menu.</p>
 </section>
 <section id="build-the-documentation-website">
-<h3>7. Build the Documentation Website<a class="headerlink" href="#build-the-documentation-website" title="Link to this heading">¶</a></h3>
+<h3>7. Build the Documentation Website<a class="headerlink" href="#build-the-documentation-website" title="Link to this heading"></a></h3>
 <p>The documentation was compiled into HTML using:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">html</span>
 </pre></div>
@@ -262,9 +265,9 @@ was enabled.</p>
 </section>
 </section>
 <section id="key-files-and-their-roles">
-<h2>Key Files and Their Roles<a class="headerlink" href="#key-files-and-their-roles" title="Link to this heading">¶</a></h2>
+<h2>Key Files and Their Roles<a class="headerlink" href="#key-files-and-their-roles" title="Link to this heading"></a></h2>
 <section id="conf-py">
-<h3>conf.py<a class="headerlink" href="#conf-py" title="Link to this heading">¶</a></h3>
+<h3>conf.py<a class="headerlink" href="#conf-py" title="Link to this heading"></a></h3>
 <p>The main configuration file for Sphinx.</p>
 <p>Responsible for:</p>
 <ul class="simple">
@@ -276,7 +279,7 @@ was enabled.</p>
 </ul>
 </section>
 <section id="index-rst">
-<h3>index.rst<a class="headerlink" href="#index-rst" title="Link to this heading">¶</a></h3>
+<h3>index.rst<a class="headerlink" href="#index-rst" title="Link to this heading"></a></h3>
 <p>The main entry point of the documentation website.</p>
 <p>It defines:</p>
 <ul class="simple">
@@ -286,7 +289,7 @@ was enabled.</p>
 </ul>
 </section>
 <section id="makefile">
-<h3>Makefile<a class="headerlink" href="#makefile" title="Link to this heading">¶</a></h3>
+<h3>Makefile<a class="headerlink" href="#makefile" title="Link to this heading"></a></h3>
 <p>A helper script used to simplify build commands.</p>
 <p>Examples:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">html</span>
@@ -297,14 +300,14 @@ was enabled.</p>
 </section>
 </section>
 <section id="important-concepts-learned">
-<h2>Important Concepts Learned<a class="headerlink" href="#important-concepts-learned" title="Link to this heading">¶</a></h2>
+<h2>Important Concepts Learned<a class="headerlink" href="#important-concepts-learned" title="Link to this heading"></a></h2>
 <section id="virtual-environments">
-<h3>Virtual Environments<a class="headerlink" href="#virtual-environments" title="Link to this heading">¶</a></h3>
+<h3>Virtual Environments<a class="headerlink" href="#virtual-environments" title="Link to this heading"></a></h3>
 <p>Using a Python virtual environment ensures that documentation tools are
 isolated from the system Python and other projects.</p>
 </section>
 <section id="sphinx-documentation-system">
-<h3>Sphinx Documentation System<a class="headerlink" href="#sphinx-documentation-system" title="Link to this heading">¶</a></h3>
+<h3>Sphinx Documentation System<a class="headerlink" href="#sphinx-documentation-system" title="Link to this heading"></a></h3>
 <p>Sphinx is a powerful static documentation generator widely used in
 engineering and software projects.</p>
 <p>Examples include:</p>
@@ -315,7 +318,7 @@ engineering and software projects.</p>
 </ul>
 </section>
 <section id="restructuredtext-rst">
-<h3>reStructuredText (RST)<a class="headerlink" href="#restructuredtext-rst" title="Link to this heading">¶</a></h3>
+<h3>reStructuredText (RST)<a class="headerlink" href="#restructuredtext-rst" title="Link to this heading"></a></h3>
 <p>RST is a markup language designed for technical documentation.</p>
 <p>Features include:</p>
 <ul class="simple">
@@ -327,7 +330,7 @@ engineering and software projects.</p>
 </ul>
 </section>
 <section id="documentation-architecture">
-<h3>Documentation Architecture<a class="headerlink" href="#documentation-architecture" title="Link to this heading">¶</a></h3>
+<h3>Documentation Architecture<a class="headerlink" href="#documentation-architecture" title="Link to this heading"></a></h3>
 <p>The documentation was structured into modular sections:</p>
 <ul class="simple">
 <li><p>project documentation</p></li>
@@ -340,7 +343,7 @@ grows.</p>
 </section>
 </section>
 <section id="outcome-of-phase-2">
-<h2>Outcome of Phase 2<a class="headerlink" href="#outcome-of-phase-2" title="Link to this heading">¶</a></h2>
+<h2>Outcome of Phase 2<a class="headerlink" href="#outcome-of-phase-2" title="Link to this heading"></a></h2>
 <p>At the end of this phase:</p>
 <ul class="simple">
 <li><p>A complete Sphinx documentation system was created.</p></li>
@@ -350,7 +353,7 @@ grows.</p>
 </ul>
 </section>
 <section id="next-phase">
-<h2>Next Phase<a class="headerlink" href="#next-phase" title="Link to this heading">¶</a></h2>
+<h2>Next Phase<a class="headerlink" href="#next-phase" title="Link to this heading"></a></h2>
 <p>The next step is to deploy the documentation website using:</p>
 <ul class="simple">
 <li><p>GitHub Pages</p></li>
