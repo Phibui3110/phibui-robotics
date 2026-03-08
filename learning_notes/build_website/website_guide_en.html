@@ -1,0 +1,373 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation Website Guide &mdash; Phibui Robotics Lab 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Blog" href="../../blog/index.html" />
+    <link rel="prev" title="Setting Up Sphinx Documentation for Phibui Robotics Lab" href="setup_sphinx_documentation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Phibui Robotics Lab
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Projects</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/index.html">Projects</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">System Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../system/index.html">System Architecture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Learning Notes</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Learning Notes</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Building the Robotics Documentation Website</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="setup_sphinx_documentation.html">Setting Up Sphinx Documentation for Phibui Robotics Lab</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Documentation Website Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="setup_sphinx_documentation.html">Setting Up Sphinx Documentation for Phibui Robotics Lab</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Blog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">Blog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Phibui Robotics Lab</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Learning Notes</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Building the Robotics Documentation Website</a></li>
+      <li class="breadcrumb-item active">Documentation Website Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/learning_notes/build_website/website_guide_en.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="documentation-website-guide">
+<h1>Documentation Website Guide<a class="headerlink" href="#documentation-website-guide" title="Link to this heading"></a></h1>
+<p>This document explains how to <strong>use, maintain, and contribute</strong> to the Phibui Robotics Lab documentation website.</p>
+<p>It covers:</p>
+<ul class="simple">
+<li><p>Repository structure</p></li>
+<li><p>Documentation structure</p></li>
+<li><p>Writing workflow</p></li>
+<li><p>reStructuredText guidelines</p></li>
+<li><p>Build and deployment</p></li>
+<li><p>Best practices</p></li>
+<li><p>Common mistakes to avoid</p></li>
+</ul>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li></li>
+</ol>
+<p>This website serves as an <strong>engineering documentation portal</strong> for robotics projects developed in Phibui Robotics Lab.</p>
+<p>Main goals:</p>
+<ul class="simple">
+<li><p>Document robotics projects</p></li>
+<li><p>Record learning process in robotics</p></li>
+<li><p>Provide tutorials for ROS2 / Ubuntu / Robotics</p></li>
+<li><p>Maintain engineering documentation for the autonomous vehicle project</p></li>
+</ul>
+<p>The website is built using:</p>
+<p>Sphinx + reStructuredText + GitHub Pages.</p>
+<p>The repository is organized as follows:</p>
+<p>phibui-robotics</p>
+<p>├── docs
+│
+├── ros2_ws
+├── firmware
+├── hardware
+├── simulations
+├── scripts
+│
+├── .github
+│   └── workflows
+│
+├── README.md
+├── LICENSE
+└── .gitignore</p>
+<p>Explanation:</p>
+<p>docs
+Documentation website source files</p>
+<p>ros2_ws
+ROS2 workspace for the robotics software stack</p>
+<p>firmware
+STM32 firmware</p>
+<p>hardware
+Hardware design files, wiring diagrams, CAD, etc.</p>
+<p>simulations
+Simulation environment</p>
+<p>scripts
+Utility scripts for development</p>
+<p>The documentation website is entirely located in:</p>
+<p>docs/</p>
+<p>docs/source</p>
+<p>├── index.rst
+│
+├── projects
+│   ├── index.rst
+│   └── autonomous_vehicle
+│       ├── index.rst
+│       ├── overview.rst
+│       ├── system_architecture.rst
+│       ├── hardware.rst
+│       ├── software.rst
+│       ├── ros2_workspace.rst
+│       ├── sensors.rst
+│       ├── perception.rst
+│       ├── control.rst
+│       ├── simulation.rst
+│       └── experiments.rst
+│
+├── system
+│   ├── index.rst
+│   ├── hardware
+│   ├── software
+│   ├── perception
+│   ├── control
+│   └── simulation
+│
+├── tutorials
+│   └── index.rst
+│
+├── learning_notes
+│   └── index.rst
+│
+└── blog
+└── index.rst</p>
+<p>Meaning of each section:</p>
+<p>projects
+Documentation for robotics projects.</p>
+<p>system
+Engineering architecture documentation.</p>
+<p>tutorials
+Step-by-step tutorials.</p>
+<p>learning_notes
+Personal notes while studying robotics.</p>
+<p>blog
+Development logs and project updates.</p>
+<p>Typical workflow:</p>
+<p>Edit .rst files
+↓
+git add
+↓
+git commit
+↓
+git push
+↓
+GitHub Actions builds the documentation
+↓
+GitHub Pages deploys the website</p>
+<p>Local development workflow:</p>
+<ol class="arabic simple">
+<li><p>Edit documentation</p></li>
+</ol>
+<p>Example:</p>
+<p>docs/source/projects/autonomous_vehicle/overview.rst</p>
+<ol class="arabic simple" start="2">
+<li><p>Build documentation locally</p></li>
+</ol>
+<p>cd docs
+make html</p>
+<ol class="arabic simple" start="3">
+<li><p>Open the generated website</p></li>
+</ol>
+<p>docs/build/html/index.html</p>
+<ol class="arabic simple" start="4">
+<li><p>Commit changes</p></li>
+</ol>
+<p>git add .
+git commit -m “update documentation”
+git push</p>
+<p>All documentation is written using reStructuredText (.rst).</p>
+<p>—</p>
+<p>## 5.1 Titles</p>
+<p>Titles must use underline style.</p>
+<p>Example:</p>
+<p># Autonomous Vehicle Overview</p>
+<p>## Hardware Architecture</p>
+<p>—</p>
+<p>## 5.2 Paragraphs</p>
+<p>Just write plain text.</p>
+<p>Example:</p>
+<p>This document describes the hardware architecture
+of the autonomous vehicle platform.</p>
+<p>—</p>
+<p>## 5.3 Bullet Lists</p>
+<p>Example:</p>
+<ul class="simple">
+<li><p>Raspberry Pi 5</p></li>
+<li><p>STM32 Nucleo</p></li>
+<li><p>IMU</p></li>
+<li><p>Camera</p></li>
+</ul>
+<p>—</p>
+<p>## 5.4 Code Blocks</p>
+<p>Example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>ros2 topic list</p>
+<p>—</p>
+<p>## 5.5 Images</p>
+<p>Example:</p>
+<p>Navigation is controlled by toctree.</p>
+<p>Example:</p>
+<p>Rules:</p>
+<ul class="simple">
+<li><p>Paths are relative to the current file</p></li>
+<li><p>Do not include .rst extension</p></li>
+<li><p>Every document must have a title</p></li>
+</ul>
+<p>Example: add a new perception document.</p>
+<p>Step 1</p>
+<p>Create file:</p>
+<p>projects/autonomous_vehicle/perception_pipeline.rst</p>
+<p>Step 2</p>
+<p>Add a title:</p>
+<p># Perception Pipeline</p>
+<p>Step 3</p>
+<p>Add it to the toctree:</p>
+<p>projects/autonomous_vehicle/index.rst</p>
+<p>Deployment is fully automated.</p>
+<p>When code is pushed to GitHub:</p>
+<p>GitHub Actions will:</p>
+<ol class="arabic simple">
+<li><p>Install dependencies</p></li>
+<li><p>Build Sphinx documentation</p></li>
+<li><p>Deploy to GitHub Pages</p></li>
+</ol>
+<p>The live website is available at:</p>
+<p><a class="reference external" href="https://phibui3110.github.io/phibui-robotics">https://phibui3110.github.io/phibui-robotics</a></p>
+<p>Write clear titles</p>
+<p>Example:</p>
+<p># Control System</p>
+<p>instead of</p>
+<p>Control</p>
+<p>Keep documents focused</p>
+<p>One document = one topic</p>
+<p>Use diagrams when possible</p>
+<p>Architecture diagrams help readers understand the system faster.</p>
+<p>Mirror repository structure</p>
+<p>Example:</p>
+<p>ros2_ws → ros2 documentation
+hardware → hardware documentation</p>
+<p>Missing title</p>
+<p>Every .rst file must start with a title.</p>
+<p>Incorrect toctree paths</p>
+<p>Wrong:</p>
+<p>projects/autonomous_vehicle/overview</p>
+<p>Correct:</p>
+<p>overview</p>
+<p>File not added to toctree</p>
+<p>If a page is not in toctree, it will not appear in navigation.</p>
+<p>Forgetting to rebuild</p>
+<p>Always run:</p>
+<p>make html</p>
+<p>before committing.</p>
+<p>Python virtual environment:</p>
+<p>docs-env</p>
+<p>Activate environment:</p>
+<p>source docs-env/bin/activate</p>
+<p>Install dependencies:</p>
+<p>pip install sphinx
+pip install sphinx_rtd_theme</p>
+<p>Build documentation:</p>
+<p>cd docs
+make html</p>
+<p>Possible extensions:</p>
+<p>sphinx-mermaid
+Architecture diagrams</p>
+<p>sphinx-copybutton
+Copy code button</p>
+<p>sphinx-design
+Better UI components</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="setup_sphinx_documentation.html" class="btn btn-neutral float-left" title="Setting Up Sphinx Documentation for Phibui Robotics Lab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../blog/index.html" class="btn btn-neutral float-right" title="Blog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Bui Nhat Phi.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
