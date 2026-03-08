@@ -1,0 +1,395 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setting Up Sphinx Documentation for Phibui Robotics Lab &mdash; Phibui Robotics Lab 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Blog" href="../../blog/index.html" />
+    <link rel="prev" title="Building the Robotics Documentation Website" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Phibui Robotics Lab
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../projects/index.html">Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Learning Notes</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Building the Robotics Documentation Website</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Setting Up Sphinx Documentation for Phibui Robotics Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#development-environment">Development Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#key-steps-in-phase-2">Key Steps in Phase 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#key-files-and-their-roles">Key Files and Their Roles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#important-concepts-learned">Important Concepts Learned</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#outcome-of-phase-2">Outcome of Phase 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#next-phase">Next Phase</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">Blog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Phibui Robotics Lab</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Learning Notes</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Building the Robotics Documentation Website</a></li>
+      <li class="breadcrumb-item active">Setting Up Sphinx Documentation for Phibui Robotics Lab</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/learning_notes/build_website/setup_sphinx_documentation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="setting-up-sphinx-documentation-for-phibui-robotics-lab">
+<h1>Setting Up Sphinx Documentation for Phibui Robotics Lab<a class="headerlink" href="#setting-up-sphinx-documentation-for-phibui-robotics-lab" title="Link to this heading">¶</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<p>In Phase 2 of the <strong>phibui-robotics</strong> project, the goal was to set up a
+documentation system for the website <strong>Phibui Robotics Lab</strong> using <strong>Sphinx</strong>
+and <strong>reStructuredText (RST)</strong>.</p>
+<p>The documentation system allows all robotics projects, tutorials, learning
+notes, and blog posts to be written as structured documentation and
+automatically converted into a static HTML website.</p>
+<p>This phase focused on building the <strong>documentation engine</strong> that will power
+the website.</p>
+</section>
+<section id="development-environment">
+<h2>Development Environment<a class="headerlink" href="#development-environment" title="Link to this heading">¶</a></h2>
+<p>Operating System:</p>
+<ul class="simple">
+<li><p>Ubuntu 22.04</p></li>
+</ul>
+<p>Documentation stack:</p>
+<ul class="simple">
+<li><p>Sphinx</p></li>
+<li><p>reStructuredText (.rst)</p></li>
+<li><p>sphinx_rtd_theme</p></li>
+<li><p>Python virtual environment</p></li>
+</ul>
+<p>Project structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>phibui-robotics
+│
+├── docs-env
+│
+├── docs
+│   │
+│   ├── build
+│   ├── source
+│   │
+│   │   ├── projects
+│   │   ├── tutorials
+│   │   ├── learning_notes
+│   │   └── blog
+│   │
+│   │   ├── index.rst
+│   │   └── conf.py
+│   │
+│   ├── Makefile
+│   └── make.bat
+│
+├── ros2_ws
+├── firmware
+├── hardware
+├── simulations
+└── scripts
+</pre></div>
+</div>
+</section>
+<section id="key-steps-in-phase-2">
+<h2>Key Steps in Phase 2<a class="headerlink" href="#key-steps-in-phase-2" title="Link to this heading">¶</a></h2>
+<section id="create-a-python-virtual-environment">
+<h3>1. Create a Python virtual environment<a class="headerlink" href="#create-a-python-virtual-environment" title="Link to this heading">¶</a></h3>
+<p>A dedicated Python environment was created to isolate the documentation
+dependencies from the system Python.</p>
+<p>Command used:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">docs</span><span class="o">-</span><span class="n">env</span>
+</pre></div>
+</div>
+<p>Activate the environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">docs</span><span class="o">-</span><span class="n">env</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+</pre></div>
+</div>
+<p>This ensures that Sphinx and its dependencies are installed locally
+within the project.</p>
+</section>
+<section id="install-sphinx">
+<h3>2. Install Sphinx<a class="headerlink" href="#install-sphinx" title="Link to this heading">¶</a></h3>
+<p>Sphinx is the documentation generator that converts RST files into HTML.</p>
+<p>Installation command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span>
+</pre></div>
+</div>
+<p>After installation, the version can be checked with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="o">-</span><span class="n">build</span> <span class="o">--</span><span class="n">version</span>
+</pre></div>
+</div>
+</section>
+<section id="install-documentation-theme">
+<h3>3. Install Documentation Theme<a class="headerlink" href="#install-documentation-theme" title="Link to this heading">¶</a></h3>
+<p>The <strong>ReadTheDocs theme</strong> was installed to provide a professional-looking
+documentation interface.</p>
+<p>Command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx_rtd_theme</span>
+</pre></div>
+</div>
+<p>The theme was then configured inside the file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docs</span><span class="o">/</span><span class="n">source</span><span class="o">/</span><span class="n">conf</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>by modifying:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">html_theme</span> <span class="o">=</span> <span class="s1">&#39;sphinx_rtd_theme&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="initialize-the-sphinx-project">
+<h3>4. Initialize the Sphinx Project<a class="headerlink" href="#initialize-the-sphinx-project" title="Link to this heading">¶</a></h3>
+<p>Sphinx was initialized using the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="o">-</span><span class="n">quickstart</span>
+</pre></div>
+</div>
+<p>During initialization the option <strong>separate source and build directories</strong>
+was enabled.</p>
+<p>This generated the following files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">conf.py</span></code> – configuration file for Sphinx</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">index.rst</span></code> – the homepage of the documentation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Makefile</span></code> – build automation script</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">build/</span></code> – output directory for generated HTML</p></li>
+</ul>
+</section>
+<section id="organize-documentation-sections">
+<h3>5. Organize Documentation Sections<a class="headerlink" href="#organize-documentation-sections" title="Link to this heading">¶</a></h3>
+<p>The documentation was divided into four main sections:</p>
+<ul class="simple">
+<li><p>Projects</p></li>
+<li><p>Tutorials</p></li>
+<li><p>Learning Notes</p></li>
+<li><p>Blog</p></li>
+</ul>
+<p>Each section contains its own <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> file.</p>
+<p>Example structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docs</span><span class="o">/</span><span class="n">source</span><span class="o">/</span><span class="n">tutorials</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">rst</span>
+<span class="n">docs</span><span class="o">/</span><span class="n">source</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">rst</span>
+<span class="n">docs</span><span class="o">/</span><span class="n">source</span><span class="o">/</span><span class="n">learning_notes</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">rst</span>
+<span class="n">docs</span><span class="o">/</span><span class="n">source</span><span class="o">/</span><span class="n">blog</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">rst</span>
+</pre></div>
+</div>
+<p>Each section acts as a <strong>documentation hub</strong> for related pages.</p>
+</section>
+<section id="configure-navigation-with-toctree">
+<h3>6. Configure Navigation with Toctree<a class="headerlink" href="#configure-navigation-with-toctree" title="Link to this heading">¶</a></h3>
+<p>Sphinx uses the <code class="docutils literal notranslate"><span class="pre">toctree</span></code> directive to build the website navigation.</p>
+<p>Example in <code class="docutils literal notranslate"><span class="pre">index.rst</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">toctree</span><span class="p">::</span>
+   <span class="p">:</span><span class="n">maxdepth</span><span class="p">:</span> <span class="mi">2</span>
+   <span class="p">:</span><span class="n">caption</span><span class="p">:</span> <span class="n">Contents</span>
+
+   <span class="n">projects</span><span class="o">/</span><span class="n">index</span>
+   <span class="n">tutorials</span><span class="o">/</span><span class="n">index</span>
+   <span class="n">learning_notes</span><span class="o">/</span><span class="n">index</span>
+   <span class="n">blog</span><span class="o">/</span><span class="n">index</span>
+</pre></div>
+</div>
+<p>This creates the sidebar navigation menu.</p>
+</section>
+<section id="build-the-documentation-website">
+<h3>7. Build the Documentation Website<a class="headerlink" href="#build-the-documentation-website" title="Link to this heading">¶</a></h3>
+<p>The documentation was compiled into HTML using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">html</span>
+</pre></div>
+</div>
+<p>This command internally runs:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="o">-</span><span class="n">build</span> <span class="o">-</span><span class="n">b</span> <span class="n">html</span> <span class="n">source</span> <span class="n">build</span><span class="o">/</span><span class="n">html</span>
+</pre></div>
+</div>
+<p>The generated website is located at:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docs</span><span class="o">/</span><span class="n">build</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+<p>The site can be opened in a browser using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xdg</span><span class="o">-</span><span class="nb">open</span> <span class="n">build</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="key-files-and-their-roles">
+<h2>Key Files and Their Roles<a class="headerlink" href="#key-files-and-their-roles" title="Link to this heading">¶</a></h2>
+<section id="conf-py">
+<h3>conf.py<a class="headerlink" href="#conf-py" title="Link to this heading">¶</a></h3>
+<p>The main configuration file for Sphinx.</p>
+<p>Responsible for:</p>
+<ul class="simple">
+<li><p>project metadata</p></li>
+<li><p>theme configuration</p></li>
+<li><p>extensions</p></li>
+<li><p>static files</p></li>
+<li><p>build settings</p></li>
+</ul>
+</section>
+<section id="index-rst">
+<h3>index.rst<a class="headerlink" href="#index-rst" title="Link to this heading">¶</a></h3>
+<p>The main entry point of the documentation website.</p>
+<p>It defines:</p>
+<ul class="simple">
+<li><p>homepage content</p></li>
+<li><p>main navigation structure</p></li>
+<li><p>documentation hierarchy</p></li>
+</ul>
+</section>
+<section id="makefile">
+<h3>Makefile<a class="headerlink" href="#makefile" title="Link to this heading">¶</a></h3>
+<p>A helper script used to simplify build commands.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">html</span>
+<span class="n">make</span> <span class="n">clean</span>
+</pre></div>
+</div>
+<p>This eliminates the need to manually run <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code>.</p>
+</section>
+</section>
+<section id="important-concepts-learned">
+<h2>Important Concepts Learned<a class="headerlink" href="#important-concepts-learned" title="Link to this heading">¶</a></h2>
+<section id="virtual-environments">
+<h3>Virtual Environments<a class="headerlink" href="#virtual-environments" title="Link to this heading">¶</a></h3>
+<p>Using a Python virtual environment ensures that documentation tools are
+isolated from the system Python and other projects.</p>
+</section>
+<section id="sphinx-documentation-system">
+<h3>Sphinx Documentation System<a class="headerlink" href="#sphinx-documentation-system" title="Link to this heading">¶</a></h3>
+<p>Sphinx is a powerful static documentation generator widely used in
+engineering and software projects.</p>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p>Python documentation</p></li>
+<li><p>ROS documentation</p></li>
+<li><p>NVIDIA developer documentation</p></li>
+</ul>
+</section>
+<section id="restructuredtext-rst">
+<h3>reStructuredText (RST)<a class="headerlink" href="#restructuredtext-rst" title="Link to this heading">¶</a></h3>
+<p>RST is a markup language designed for technical documentation.</p>
+<p>Features include:</p>
+<ul class="simple">
+<li><p>structured headings</p></li>
+<li><p>automatic table of contents</p></li>
+<li><p>code blocks</p></li>
+<li><p>cross references</p></li>
+<li><p>extensible directives</p></li>
+</ul>
+</section>
+<section id="documentation-architecture">
+<h3>Documentation Architecture<a class="headerlink" href="#documentation-architecture" title="Link to this heading">¶</a></h3>
+<p>The documentation was structured into modular sections:</p>
+<ul class="simple">
+<li><p>project documentation</p></li>
+<li><p>tutorials</p></li>
+<li><p>learning notes</p></li>
+<li><p>blog posts</p></li>
+</ul>
+<p>This structure allows the documentation to scale as the robotics project
+grows.</p>
+</section>
+</section>
+<section id="outcome-of-phase-2">
+<h2>Outcome of Phase 2<a class="headerlink" href="#outcome-of-phase-2" title="Link to this heading">¶</a></h2>
+<p>At the end of this phase:</p>
+<ul class="simple">
+<li><p>A complete Sphinx documentation system was created.</p></li>
+<li><p>The <strong>Phibui Robotics Lab</strong> website successfully builds locally.</p></li>
+<li><p>Documentation can now be written using structured RST files.</p></li>
+<li><p>The project now has a scalable documentation architecture.</p></li>
+</ul>
+</section>
+<section id="next-phase">
+<h2>Next Phase<a class="headerlink" href="#next-phase" title="Link to this heading">¶</a></h2>
+<p>The next step is to deploy the documentation website using:</p>
+<ul class="simple">
+<li><p>GitHub Pages</p></li>
+<li><p>GitHub Actions</p></li>
+</ul>
+<p>This will enable <strong>automatic deployment</strong> of the website whenever new
+documentation is pushed to the repository.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Building the Robotics Documentation Website" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../blog/index.html" class="btn btn-neutral float-right" title="Blog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Bui Nhat Phi.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
