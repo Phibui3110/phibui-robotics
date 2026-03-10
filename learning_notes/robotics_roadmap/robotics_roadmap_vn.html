@@ -1,0 +1,402 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lộ trình học Robotics &mdash; Phibui Robotics Lab 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Robotics Learning Roadmap" href="robotics_roadmap.html" />
+    <link rel="prev" title="Robotics Roadmap" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Phibui Robotics Lab
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Projects</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/index.html">Projects</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">System Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../system/index.html">System Architecture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Learning Notes</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Learning Notes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../build_website/index.html">Building the Robotics Documentation Website</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Robotics Roadmap</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Lộ trình học Robotics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#boi-canh-du-an">Bối cảnh dự án</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#boi-canh-hien-tai">Bối cảnh hiện tại</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#huong-nghien-cuu">Hướng nghiên cứu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kien-truc-he-thong">Kiến trúc hệ thống</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#moi-truong-mo-phong">Môi trường mô phỏng</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#he-thong-hardware-that">Hệ thống hardware thật</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#muc-tieu-nghien-cuu">Mục tiêu nghiên cứu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#thiet-ke-thi-nghiem">Thiết kế thí nghiệm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lo-trinh-phat-trien">Lộ trình phát triển</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ket-qua-ky-vong">Kết quả kỳ vọng</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="robotics_roadmap.html">Robotics Learning Roadmap</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Blog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">Blog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Phibui Robotics Lab</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Learning Notes</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Robotics Roadmap</a></li>
+      <li class="breadcrumb-item active">Lộ trình học Robotics</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/learning_notes/robotics_roadmap/robotics_roadmap_vn.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lo-trinh-hoc-robotics">
+<h1>Lộ trình học Robotics<a class="headerlink" href="#lo-trinh-hoc-robotics" title="Link to this heading"></a></h1>
+<section id="boi-canh-du-an">
+<h2>Bối cảnh dự án<a class="headerlink" href="#boi-canh-du-an" title="Link to this heading"></a></h2>
+<p>Dự án này được phát triển trong <strong>Phibui Robotics Lab</strong> với mục tiêu xây dựng một hệ thống robot sử dụng:</p>
+<ul class="simple">
+<li><p>Ubuntu</p></li>
+<li><p>ROS2</p></li>
+</ul>
+<p>Các mục tiêu chính của dự án:</p>
+<ol class="arabic simple">
+<li><p>Xây dựng hệ thống robot giao tiếp với hardware tự thiết kế thông qua ROS2</p></li>
+<li><p>Phát triển hệ thống perception dựa trên Camera và IMU</p></li>
+<li><p>So sánh kết quả giữa mô phỏng và robot thật</p></li>
+<li><p>Hoàn thành đồ án tốt nghiệp</p></li>
+<li><p>Xây dựng nền tảng cho một bài báo nghiên cứu robotics</p></li>
+</ol>
+</section>
+<section id="boi-canh-hien-tai">
+<h2>Bối cảnh hiện tại<a class="headerlink" href="#boi-canh-hien-tai" title="Link to this heading"></a></h2>
+<p>Hiện tại dự án đang ở giai đoạn:</p>
+<p><strong>Robotics System Foundation</strong></p>
+<p>Các thành phần hiện có:</p>
+<ul class="simple">
+<li><p>môi trường phát triển Ubuntu</p></li>
+<li><p>đang học ROS2</p></li>
+<li><p>robot hardware tự thiết kế</p></li>
+<li><p>website documentation được xây dựng bằng Sphinx</p></li>
+</ul>
+<p>Website documentation có mục tiêu:</p>
+<ul class="simple">
+<li><p>ghi lại quá trình nghiên cứu robotics</p></li>
+<li><p>theo dõi tiến trình phát triển hệ thống</p></li>
+<li><p>chia sẻ kết quả thí nghiệm</p></li>
+<li><p>hỗ trợ việc viết paper trong tương lai</p></li>
+</ul>
+</section>
+<section id="huong-nghien-cuu">
+<h2>Hướng nghiên cứu<a class="headerlink" href="#huong-nghien-cuu" title="Link to this heading"></a></h2>
+<p>Hướng nghiên cứu chính của dự án:</p>
+<p><strong>Visual-Inertial Perception</strong></p>
+<p>Các sensor sử dụng:</p>
+<ul class="simple">
+<li><p>Camera</p></li>
+<li><p>IMU</p></li>
+</ul>
+<p>Mục tiêu nghiên cứu:</p>
+<ul class="simple">
+<li><p>fusion dữ liệu Camera và IMU</p></li>
+<li><p>xây dựng hệ thống perception cho robot</p></li>
+<li><p>so sánh kết quả giữa simulation và thực tế</p></li>
+</ul>
+<p>Framework sử dụng:</p>
+<ul class="simple">
+<li><p>ROS2</p></li>
+<li><p>Gazebo</p></li>
+</ul>
+</section>
+<section id="kien-truc-he-thong">
+<h2>Kiến trúc hệ thống<a class="headerlink" href="#kien-truc-he-thong" title="Link to this heading"></a></h2>
+<p>Kiến trúc hệ thống robot dự kiến:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Camera
+IMU
+     ↓
+ROS2 Sensor Drivers
+     ↓
+Sensor Synchronization
+     ↓
+Visual-Inertial Perception
+     ↓
+State Estimation
+     ↓
+Robot Control
+</pre></div>
+</div>
+<p>Ví dụ các ROS2 topics:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">camera</span><span class="o">/</span><span class="n">image_raw</span>
+<span class="o">/</span><span class="n">imu</span><span class="o">/</span><span class="n">data</span>
+</pre></div>
+</div>
+<p>Các hướng thuật toán perception có thể sử dụng:</p>
+<ul class="simple">
+<li><p>Visual Odometry</p></li>
+<li><p>Visual-Inertial Odometry</p></li>
+<li><p>Visual SLAM</p></li>
+</ul>
+<p>Một số framework phổ biến:</p>
+<ul class="simple">
+<li><p>ORB-SLAM3</p></li>
+<li><p>OpenVINS</p></li>
+</ul>
+</section>
+<section id="moi-truong-mo-phong">
+<h2>Môi trường mô phỏng<a class="headerlink" href="#moi-truong-mo-phong" title="Link to this heading"></a></h2>
+<p>Simulation được sử dụng để:</p>
+<ul class="simple">
+<li><p>debug thuật toán</p></li>
+<li><p>test perception pipeline</p></li>
+<li><p>so sánh kết quả với robot thật</p></li>
+</ul>
+<p>Simulator được sử dụng trong dự án:</p>
+<p><strong>Gazebo</strong></p>
+<p>Pipeline trong simulation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Gazebo
+   ↓
+Simulated Sensors
+   ↓
+ROS2 Topics
+   ↓
+Perception Algorithm
+</pre></div>
+</div>
+</section>
+<section id="he-thong-hardware-that">
+<h2>Hệ thống hardware thật<a class="headerlink" href="#he-thong-hardware-that" title="Link to this heading"></a></h2>
+<p>Robot hardware bao gồm:</p>
+<ul class="simple">
+<li><p>Camera</p></li>
+<li><p>IMU</p></li>
+<li><p>máy tính nhúng</p></li>
+<li><p>motor controller</p></li>
+</ul>
+<p>Pipeline hệ thống thực tế:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Real Sensors
+     ↓
+ROS2 Drivers
+     ↓
+Perception Algorithm
+     ↓
+Robot Motion
+</pre></div>
+</div>
+<p>Nguyên tắc quan trọng:</p>
+<p>Thuật toán perception cần <strong>giữ giống nhau</strong> giữa simulation và hardware thật.</p>
+</section>
+<section id="muc-tieu-nghien-cuu">
+<h2>Mục tiêu nghiên cứu<a class="headerlink" href="#muc-tieu-nghien-cuu" title="Link to this heading"></a></h2>
+<p>Câu hỏi nghiên cứu chính của dự án:</p>
+<p><strong>Simulation và môi trường thực tế khác nhau như thế nào đối với hệ thống perception của robot?</strong></p>
+<p>Các metrics đánh giá có thể bao gồm:</p>
+<ul class="simple">
+<li><p>độ chính xác quỹ đạo</p></li>
+<li><p>drift error</p></li>
+<li><p>độ trễ xử lý</p></li>
+<li><p>độ ổn định của hệ thống</p></li>
+</ul>
+<p>Ví dụ các metrics cụ thể:</p>
+<ul class="simple">
+<li><p>Absolute Trajectory Error (ATE)</p></li>
+<li><p>processing latency</p></li>
+<li><p>sensor noise sensitivity</p></li>
+</ul>
+</section>
+<section id="thiet-ke-thi-nghiem">
+<h2>Thiết kế thí nghiệm<a class="headerlink" href="#thiet-ke-thi-nghiem" title="Link to this heading"></a></h2>
+<section id="thi-nghiem-1-simulation">
+<h3>Thí nghiệm 1 — Simulation<a class="headerlink" href="#thi-nghiem-1-simulation" title="Link to this heading"></a></h3>
+<p>Robot chạy trong môi trường mô phỏng để đánh giá:</p>
+<ul class="simple">
+<li><p>quỹ đạo robot</p></li>
+<li><p>output của perception</p></li>
+<li><p>độ chính xác ước lượng vị trí</p></li>
+</ul>
+</section>
+<section id="thi-nghiem-2-robot-that">
+<h3>Thí nghiệm 2 — Robot thật<a class="headerlink" href="#thi-nghiem-2-robot-that" title="Link to this heading"></a></h3>
+<p>Robot chạy trong môi trường thực với:</p>
+<ul class="simple">
+<li><p>cùng quỹ đạo</p></li>
+<li><p>cùng perception pipeline</p></li>
+</ul>
+</section>
+<section id="thi-nghiem-3-so-sanh">
+<h3>Thí nghiệm 3 — So sánh<a class="headerlink" href="#thi-nghiem-3-so-sanh" title="Link to this heading"></a></h3>
+<p>So sánh:</p>
+<ul class="simple">
+<li><p>kết quả từ simulation</p></li>
+<li><p>kết quả từ robot thật</p></li>
+</ul>
+</section>
+</section>
+<section id="lo-trinh-phat-trien">
+<h2>Lộ trình phát triển<a class="headerlink" href="#lo-trinh-phat-trien" title="Link to this heading"></a></h2>
+<section id="phase-1-nen-tang-linux-va-ros2">
+<h3>Phase 1 — Nền tảng Linux và ROS2<a class="headerlink" href="#phase-1-nen-tang-linux-va-ros2" title="Link to this heading"></a></h3>
+<p>Các nội dung cần học:</p>
+<ul class="simple">
+<li><p>Ubuntu environment</p></li>
+<li><p>ROS2 cơ bản</p></li>
+<li><p>nodes</p></li>
+<li><p>topics</p></li>
+<li><p>services</p></li>
+<li><p>launch files</p></li>
+</ul>
+<p>Mục tiêu:</p>
+<p>Xây dựng hệ thống ROS2 giao tiếp được với robot hardware.</p>
+</section>
+<section id="phase-2-tich-hop-hardware">
+<h3>Phase 2 — Tích hợp hardware<a class="headerlink" href="#phase-2-tich-hop-hardware" title="Link to this heading"></a></h3>
+<p>Xây dựng ROS2 drivers cho các sensor:</p>
+<ul class="simple">
+<li><p>camera driver</p></li>
+<li><p>imu driver</p></li>
+<li><p>motor driver</p></li>
+</ul>
+<p>Pipeline hệ thống:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Sensors → ROS2 → Robot Control
+</pre></div>
+</div>
+</section>
+<section id="phase-3-phat-trien-perception">
+<h3>Phase 3 — Phát triển perception<a class="headerlink" href="#phase-3-phat-trien-perception" title="Link to this heading"></a></h3>
+<p>Tập trung vào các thuật toán perception:</p>
+<ul class="simple">
+<li><p>Camera perception</p></li>
+<li><p>IMU fusion</p></li>
+<li><p>Visual Odometry</p></li>
+</ul>
+<p>Các thuật toán có thể sử dụng:</p>
+<ul class="simple">
+<li><p>ORB-SLAM3</p></li>
+<li><p>OpenVINS</p></li>
+<li><p>custom perception modules</p></li>
+</ul>
+</section>
+<section id="phase-4-tich-hop-simulation">
+<h3>Phase 4 — Tích hợp simulation<a class="headerlink" href="#phase-4-tich-hop-simulation" title="Link to this heading"></a></h3>
+<p>Sử dụng Gazebo để:</p>
+<ul class="simple">
+<li><p>test perception algorithms</p></li>
+<li><p>debug ROS2 pipeline</p></li>
+<li><p>so sánh simulation với robot thật</p></li>
+</ul>
+</section>
+</section>
+<section id="ket-qua-ky-vong">
+<h2>Kết quả kỳ vọng<a class="headerlink" href="#ket-qua-ky-vong" title="Link to this heading"></a></h2>
+<p>Kết quả dự kiến của dự án:</p>
+<ul class="simple">
+<li><p>hệ thống robotics hoàn chỉnh dựa trên ROS2</p></li>
+<li><p>pipeline perception sử dụng Camera và IMU</p></li>
+<li><p>đánh giá sự khác biệt giữa simulation và thực tế</p></li>
+</ul>
+<p>Các sản phẩm đầu ra của dự án:</p>
+<ul class="simple">
+<li><p>đồ án tốt nghiệp</p></li>
+<li><p>hệ thống robot hoàn chỉnh</p></li>
+<li><p>các thí nghiệm robotics</p></li>
+<li><p>nền tảng cho một bài báo nghiên cứu</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Robotics Roadmap" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="robotics_roadmap.html" class="btn btn-neutral float-right" title="Robotics Learning Roadmap" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Bui Nhat Phi.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
