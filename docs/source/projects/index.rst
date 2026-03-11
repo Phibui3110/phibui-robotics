@@ -12,3 +12,4 @@ perception algorithms, control systems, and experiments.
    :caption: Robotics Projects
 
    autonomous_vehicle/index
+   graduation_project/index
