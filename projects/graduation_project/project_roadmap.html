@@ -1,0 +1,527 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Camera–IMU Assisted BEV Lane Following for Autonomous RC Car &mdash; Phibui Robotics Lab 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="System Architecture" href="../../system/index.html" />
+    <link rel="prev" title="Everything about my graduation project" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Phibui Robotics Lab
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Projects</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Projects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../autonomous_vehicle/index.html">Autonomous Vehicle</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Everything about my graduation project</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Camera–IMU Assisted BEV Lane Following for Autonomous RC Car</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#final-system-architecture">Final System Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ros2-node-architecture">ROS2 Node Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#global-learning-priorities">Global Learning Priorities</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#project-roadmap-8-weeks">Project Roadmap (8 Weeks)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#phase-1-ros2-camera-foundation">Phase 1 — ROS2 Camera Foundation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#phase-2-opencv-lane-detection">Phase 2 — OpenCV Lane Detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#phase-3-camera-calibration">Phase 3 — Camera Calibration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#phase-4-bird-s-eye-view-bev">Phase 4 — Bird’s Eye View (BEV)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#phase-5-lane-detection-on-bev">Phase 5 — Lane Detection on BEV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#phase-6-imu-integration">Phase 6 — IMU Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#phase-7-sensor-fusion">Phase 7 — Sensor Fusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#phase-8-vehicle-control">Phase 8 — Vehicle Control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#phase-9-system-integration">Phase 9 — System Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#phase-10-simulation-optional">Phase 10 — Simulation (Optional)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#development-architecture">Development Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expected-final-demonstration">Expected Final Demonstration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#daily-study-priorities">Daily Study Priorities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">System Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../system/index.html">System Architecture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Learning Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../learning_notes/index.html">Learning Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Blog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">Blog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Phibui Robotics Lab</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Projects</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Everything about my graduation project</a></li>
+      <li class="breadcrumb-item active">Camera–IMU Assisted BEV Lane Following for Autonomous RC Car</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/projects/graduation_project/project_roadmap.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cameraimu-assisted-bev-lane-following-for-autonomous-rc-car">
+<h1>Camera–IMU Assisted BEV Lane Following for Autonomous RC Car<a class="headerlink" href="#cameraimu-assisted-bev-lane-following-for-autonomous-rc-car" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>This document defines the development roadmap for the graduation project:</p>
+<p><strong>Camera - IMU Assisted BEV Lane Following for Autonomous RC Car</strong></p>
+<p>The objective of this project is to design and implement a <strong>mini autonomous driving system</strong>
+using a <strong>1/16 scale RC car</strong> equipped with:</p>
+<ul class="simple">
+<li><p>Raspberry Pi 5</p></li>
+<li><p>Raspberry Pi Camera Module 3 Wide (120° FOV)</p></li>
+<li><p>BNO055 IMU</p></li>
+<li><p>Nucleo F411RE microcontroller</p></li>
+<li><p>ESC 1060WP</p></li>
+<li><p>550 Brushed Motor</p></li>
+<li><p>Servo 17g</p></li>
+</ul>
+<p>The project aims to reproduce a <strong>simplified autonomous driving stack</strong> using classical
+computer vision techniques, sensor fusion, and ROS2 architecture.</p>
+</section>
+<section id="final-system-architecture">
+<h2>Final System Architecture<a class="headerlink" href="#final-system-architecture" title="Link to this heading"></a></h2>
+<p>The final system should follow a structured autonomous driving pipeline.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Camera
+   ↓
+Image Processing
+   ↓
+BEV Transformation
+   ↓
+Lane Detection
+   ↓
+Lane Geometry Estimation
+   ↓
+IMU Orientation Estimation
+   ↓
+Sensor Fusion
+   ↓
+Vehicle Controller
+   ↓
+Vehicle Interface (Nucleo)
+</pre></div>
+</div>
+</section>
+<section id="ros2-node-architecture">
+<h2>ROS2 Node Architecture<a class="headerlink" href="#ros2-node-architecture" title="Link to this heading"></a></h2>
+<p>The ROS2 system should be modular and divided into multiple nodes.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">camera_node</span>
+<span class="o">/</span><span class="n">bev_transform_node</span>
+<span class="o">/</span><span class="n">lane_detection_node</span>
+<span class="o">/</span><span class="n">imu_node</span>
+<span class="o">/</span><span class="n">sensor_fusion_node</span>
+<span class="o">/</span><span class="n">control_node</span>
+<span class="o">/</span><span class="n">vehicle_interface_node</span>
+</pre></div>
+</div>
+<p>Example ROS2 topics:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">camera</span><span class="o">/</span><span class="n">image_raw</span>
+<span class="o">/</span><span class="n">camera</span><span class="o">/</span><span class="n">camera_info</span>
+<span class="o">/</span><span class="n">lane_detection</span><span class="o">/</span><span class="n">lane_center</span>
+<span class="o">/</span><span class="n">lane_detection</span><span class="o">/</span><span class="n">lane_angle</span>
+<span class="o">/</span><span class="n">imu</span><span class="o">/</span><span class="n">data</span>
+<span class="o">/</span><span class="n">vehicle</span><span class="o">/</span><span class="n">steering_cmd</span>
+</pre></div>
+</div>
+</section>
+<section id="global-learning-priorities">
+<h2>Global Learning Priorities<a class="headerlink" href="#global-learning-priorities" title="Link to this heading"></a></h2>
+<p>The following knowledge areas must be prioritized:</p>
+<ol class="arabic simple">
+<li><p>ROS2 system architecture</p></li>
+<li><p>OpenCV image processing</p></li>
+<li><p>Camera calibration</p></li>
+<li><p>Bird’s Eye View (BEV) transformation</p></li>
+<li><p>Control systems and IMU fusion</p></li>
+</ol>
+<p>All other topics are secondary.</p>
+</section>
+</section>
+<section id="project-roadmap-8-weeks">
+<h1>Project Roadmap (8 Weeks)<a class="headerlink" href="#project-roadmap-8-weeks" title="Link to this heading"></a></h1>
+<section id="phase-1-ros2-camera-foundation">
+<h2>Phase 1 — ROS2 Camera Foundation<a class="headerlink" href="#phase-1-ros2-camera-foundation" title="Link to this heading"></a></h2>
+<p>Duration: <strong>~1 week</strong></p>
+<p>Goal: build a functioning ROS2 camera pipeline.</p>
+<p>Tasks:</p>
+<p>Study:</p>
+<ul class="simple">
+<li><p>ROS2 image pipeline</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cv_bridge</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">image_transport</span></code></p></li>
+<li><p>RViz visualization</p></li>
+</ul>
+<p>System goal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Camera → ROS2 topic → RViz display
+</pre></div>
+</div>
+<p>Important ROS2 topic:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">camera</span><span class="o">/</span><span class="n">image_raw</span>
+</pre></div>
+</div>
+<p>Tools to learn:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rqt_graph</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">topic</span> <span class="pre">echo</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">topic</span> <span class="pre">hz</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rosbag</span></code></p></li>
+</ul>
+<p>Expected result:</p>
+<ul class="simple">
+<li><p>Camera streaming through ROS2</p></li>
+<li><p>Images accessible inside Python nodes</p></li>
+</ul>
+</section>
+<section id="phase-2-opencv-lane-detection">
+<h2>Phase 2 — OpenCV Lane Detection<a class="headerlink" href="#phase-2-opencv-lane-detection" title="Link to this heading"></a></h2>
+<p>Duration: <strong>~1 week</strong></p>
+<p>Goal: implement lane detection <strong>without ROS2 first</strong>.</p>
+<p>Pipeline:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>image
+→ HSV conversion
+→ color threshold
+→ Gaussian blur
+→ Canny edge detection
+→ Hough transform
+→ lane center estimation
+</pre></div>
+</div>
+<p>Important OpenCV functions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span>
+<span class="n">cv2</span><span class="o">.</span><span class="n">inRange</span>
+<span class="n">cv2</span><span class="o">.</span><span class="n">GaussianBlur</span>
+<span class="n">cv2</span><span class="o">.</span><span class="n">Canny</span>
+<span class="n">cv2</span><span class="o">.</span><span class="n">HoughLinesP</span>
+</pre></div>
+</div>
+<p>Outputs:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lane_center</span>
+<span class="n">lane_angle</span>
+</pre></div>
+</div>
+<p>The detected lanes should be visualized by overlaying lines on the original image.</p>
+</section>
+<section id="phase-3-camera-calibration">
+<h2>Phase 3 — Camera Calibration<a class="headerlink" href="#phase-3-camera-calibration" title="Link to this heading"></a></h2>
+<p>Goal: remove camera lens distortion.</p>
+<p>Because the <strong>Camera Module 3 Wide (120°)</strong> has strong distortion, calibration is critical.</p>
+<p>Steps:</p>
+<ol class="arabic simple">
+<li><p>Print a chessboard pattern</p></li>
+<li><p>Capture ~20 calibration images</p></li>
+<li><p>Run OpenCV calibration</p></li>
+</ol>
+<p>Important functions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cv2</span><span class="o">.</span><span class="n">findChessboardCorners</span>
+<span class="n">cv2</span><span class="o">.</span><span class="n">calibrateCamera</span>
+<span class="n">cv2</span><span class="o">.</span><span class="n">undistort</span>
+</pre></div>
+</div>
+<p>Outputs:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">camera_matrix</span>
+<span class="n">distortion_coefficients</span>
+</pre></div>
+</div>
+<p>These parameters should be stored in a <strong>YAML calibration file</strong>.</p>
+<p>In ROS2 this corresponds to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">camera</span><span class="o">/</span><span class="n">camera_info</span>
+</pre></div>
+</div>
+</section>
+<section id="phase-4-bird-s-eye-view-bev">
+<h2>Phase 4 — Bird’s Eye View (BEV)<a class="headerlink" href="#phase-4-bird-s-eye-view-bev" title="Link to this heading"></a></h2>
+<p>Goal: convert the camera image into a <strong>top-down road view</strong>.</p>
+<p>BEV uses a <strong>perspective transformation</strong> based on a homography matrix.</p>
+<p>Mathematical form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="s1">&#39; = Hx</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">H</span></code> is a <strong>3×3 homography matrix</strong>.</p>
+<p>Implementation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cv2</span><span class="o">.</span><span class="n">getPerspectiveTransform</span>
+<span class="n">cv2</span><span class="o">.</span><span class="n">warpPerspective</span>
+</pre></div>
+</div>
+<p>Workflow:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>camera image
+→ undistort
+→ perspective transform
+→ BEV image
+</pre></div>
+</div>
+<p>Result:</p>
+<ul class="simple">
+<li><p>lane lines become approximately parallel</p></li>
+<li><p>lane detection becomes easier and more stable</p></li>
+</ul>
+</section>
+<section id="phase-5-lane-detection-on-bev">
+<h2>Phase 5 — Lane Detection on BEV<a class="headerlink" href="#phase-5-lane-detection-on-bev" title="Link to this heading"></a></h2>
+<p>After BEV transformation, perform lane detection again.</p>
+<p>Typical algorithm:</p>
+<ol class="arabic simple">
+<li><p>threshold white lane pixels</p></li>
+<li><p>sliding window search</p></li>
+<li><p>polynomial curve fitting</p></li>
+</ol>
+<p>Outputs:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lane_center</span>
+<span class="n">lane_curvature</span>
+</pre></div>
+</div>
+<p>Steering error:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">error</span> <span class="o">=</span> <span class="n">lane_center</span> <span class="o">-</span> <span class="n">vehicle_center</span>
+</pre></div>
+</div>
+<p>This value becomes the control input.</p>
+</section>
+<section id="phase-6-imu-integration">
+<h2>Phase 6 — IMU Integration<a class="headerlink" href="#phase-6-imu-integration" title="Link to this heading"></a></h2>
+<p>Goal: integrate <strong>BNO055 orientation data</strong>.</p>
+<p>Hardware connection:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>BNO055 → I2C → Raspberry Pi
+</pre></div>
+</div>
+<p>ROS2 node publishes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">imu</span><span class="o">/</span><span class="n">data</span>
+</pre></div>
+</div>
+<p>Important signals:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yaw</span>
+<span class="n">angular_velocity_z</span>
+</pre></div>
+</div>
+</section>
+<section id="phase-7-sensor-fusion">
+<h2>Phase 7 — Sensor Fusion<a class="headerlink" href="#phase-7-sensor-fusion" title="Link to this heading"></a></h2>
+<p>Combine camera heading with IMU orientation.</p>
+<p>Simple fusion model:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">heading_estimate</span> <span class="o">=</span>
+    <span class="mf">0.7</span> <span class="o">*</span> <span class="n">camera_heading</span> <span class="o">+</span>
+    <span class="mf">0.3</span> <span class="o">*</span> <span class="n">imu_heading</span>
+</pre></div>
+</div>
+<p>More advanced alternatives:</p>
+<ul class="simple">
+<li><p>complementary filter</p></li>
+<li><p>Kalman filter</p></li>
+</ul>
+</section>
+<section id="phase-8-vehicle-control">
+<h2>Phase 8 — Vehicle Control<a class="headerlink" href="#phase-8-vehicle-control" title="Link to this heading"></a></h2>
+<p>Implement a steering controller.</p>
+<p>Control equation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">steering_angle</span> <span class="o">=</span> <span class="n">Kp</span> <span class="o">*</span> <span class="n">error</span> <span class="o">+</span> <span class="n">Kd</span> <span class="o">*</span> <span class="n">error_rate</span>
+</pre></div>
+</div>
+<p>Publish command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">vehicle</span><span class="o">/</span><span class="n">steering_cmd</span>
+</pre></div>
+</div>
+<p>This command is transmitted through <strong>serial communication</strong> to the Nucleo F411.</p>
+</section>
+<section id="phase-9-system-integration">
+<h2>Phase 9 — System Integration<a class="headerlink" href="#phase-9-system-integration" title="Link to this heading"></a></h2>
+<p>Full perception-to-control pipeline:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Camera
+   ↓
+Calibration
+   ↓
+BEV Transform
+   ↓
+Lane Detection
+   ↓
+IMU Fusion
+   ↓
+PID Controller
+   ↓
+Nucleo Steering Control
+</pre></div>
+</div>
+<p>The RC car should autonomously follow a <strong>tape-based lane track</strong>.</p>
+</section>
+<section id="phase-10-simulation-optional">
+<h2>Phase 10 — Simulation (Optional)<a class="headerlink" href="#phase-10-simulation-optional" title="Link to this heading"></a></h2>
+<p>Gazebo simulation can be used to evaluate <strong>simulation vs reality</strong>.</p>
+<p>Example metrics:</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Metric</p></td>
+<td><p>Meaning</p></td>
+</tr>
+<tr class="row-even"><td><p>Metric</p></td>
+<td><p>Meaning</p></td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">Lane deviation</div>
+<div class="line">Steering oscillation</div>
+<div class="line">Success rate</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">distance from center</div>
+<div class="line">control stability</div>
+<div class="line">track completion</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This comparison can strengthen the research contribution.</p>
+</section>
+<section id="development-architecture">
+<h2>Development Architecture<a class="headerlink" href="#development-architecture" title="Link to this heading"></a></h2>
+<p>Recommended computing architecture:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Laptop
+   ├ perception processing
+   ├ BEV transformation
+   └ ROS2 core
+
+Raspberry Pi
+   ├ camera driver
+   └ hardware interface
+
+Nucleo
+   └ motor and servo control
+</pre></div>
+</div>
+<p>Communication is handled via <strong>ROS2 DDS network</strong>.</p>
+</section>
+<section id="expected-final-demonstration">
+<h2>Expected Final Demonstration<a class="headerlink" href="#expected-final-demonstration" title="Link to this heading"></a></h2>
+<p>The final project demonstration should show:</p>
+<ol class="arabic simple">
+<li><p>Autonomous RC car lane following</p></li>
+<li><p>BEV visualization</p></li>
+<li><p>Lane detection overlay</p></li>
+<li><p>IMU orientation monitoring</p></li>
+<li><p>ROS2 node graph visualization</p></li>
+</ol>
+<p>This structure represents a <strong>mini autonomous driving platform</strong>.</p>
+</section>
+<section id="daily-study-priorities">
+<h2>Daily Study Priorities<a class="headerlink" href="#daily-study-priorities" title="Link to this heading"></a></h2>
+<p>Recommended study order:</p>
+<ol class="arabic simple">
+<li><p>ROS2 camera pipeline</p></li>
+<li><p>OpenCV fundamentals</p></li>
+<li><p>Camera calibration</p></li>
+<li><p>BEV transformation</p></li>
+<li><p>Lane detection</p></li>
+<li><p>IMU integration</p></li>
+<li><p>Control systems</p></li>
+</ol>
+<p>Control implementation should <strong>only begin after perception is stable</strong>.</p>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h2>
+<p>This project replicates a <strong>simplified autonomous driving stack</strong> combining:</p>
+<ul class="simple">
+<li><p>perception (camera)</p></li>
+<li><p>localization (IMU)</p></li>
+<li><p>control (steering controller)</p></li>
+</ul>
+<p>The system demonstrates how <strong>low-cost hardware can be used to implement
+core autonomous driving technologies</strong> using classical computer vision
+and ROS2-based robotics architecture.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Everything about my graduation project" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../system/index.html" class="btn btn-neutral float-right" title="System Architecture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Bui Nhat Phi.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
