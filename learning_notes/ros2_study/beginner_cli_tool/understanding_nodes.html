@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Confiugring Environment &mdash; Phibui Robotics Lab 0.1 documentation</title>
+  <title>Understand Nodes &mdash; Phibui Robotics Lab 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
@@ -24,8 +24,8 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Using Turtlesim ROS2 rqt" href="using_turtlesim_ros2_rqt.html" />
-    <link rel="prev" title="Beginner CLI Tools" href="index.html" /> 
+    <link rel="next" title="Blog" href="../../../blog/index.html" />
+    <link rel="prev" title="Using Turtlesim ROS2 rqt" href="using_turtlesim_ros2_rqt.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -67,9 +67,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../robotics_roadmap/index.html">Robotics Roadmap</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">ROS2 Study</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Beginner CLI Tools</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Confiugring Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="configuring_environment.html">Confiugring Environment</a></li>
 <li class="toctree-l4"><a class="reference internal" href="using_turtlesim_ros2_rqt.html">Using Turtlesim ROS2 rqt</a></li>
-<li class="toctree-l4"><a class="reference internal" href="understanding_nodes.html">Understand Nodes</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Understand Nodes</a></li>
 </ul>
 </li>
 </ul>
@@ -99,9 +99,9 @@
           <li class="breadcrumb-item"><a href="../../index.html">Learning Notes</a></li>
           <li class="breadcrumb-item"><a href="../index.html">ROS2 Study</a></li>
           <li class="breadcrumb-item"><a href="index.html">Beginner CLI Tools</a></li>
-      <li class="breadcrumb-item active">Confiugring Environment</li>
+      <li class="breadcrumb-item active">Understand Nodes</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../../_sources/learning_notes/ros2_study/beginner_cli_tool/configuring_environment.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/learning_notes/ros2_study/beginner_cli_tool/understanding_nodes.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -109,44 +109,41 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="confiugring-environment">
-<h1>Confiugring Environment<a class="headerlink" href="#confiugring-environment" title="Link to this heading"></a></h1>
+  <section id="understand-nodes">
+<h1>Understand Nodes<a class="headerlink" href="#understand-nodes" title="Link to this heading"></a></h1>
+<p>Goal: Learn about the function of nodes in ROS2, and the tools to interact with them.</p>
 <section id="background">
 <h2>Background<a class="headerlink" href="#background" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p>Underlay: ROS2 workspace.</p></li>
-<li><p>Overlays: Subsequent local workspaces.</p></li>
-</ul>
+<ol class="arabic simple">
+<li><p>The ROS2 graph</p></li>
+<li><p>Nodes in ROS2</p></li>
+</ol>
 </section>
 <section id="tasks">
 <h2>Tasks<a class="headerlink" href="#tasks" title="Link to this heading"></a></h2>
 <ol class="arabic">
-<li><p>Source the setup files</p>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
-</pre></div>
-</div>
-</div></blockquote>
-</li>
-<li><p>Add sourcing to your shell startup script</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;source /opt/ros/humble/setup.bash&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
-</pre></div>
-</div>
-</li>
-<li><p>Check environment variables</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>printenv<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>ROS
+<li><p>ros2 run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>&lt;package_name&gt;<span class="w"> </span>&lt;executable_name&gt;
 </pre></div>
 </div>
 </li>
 </ol>
-<p>3.1. The ROS DOMAIN ID variable</p>
-<p>DDS: Data Distribution Service, a middleware protocol and API standard for data-centric connectivity.</p>
-<p>e.g. Node A =&gt; publish =&gt; Topic&gt; subscibe =&gt; Node B.</p>
-<p>All ROS2 nodes use domain ID 0 by default.</p>
-<p>Choosing a domain ID (short version)</p>
+<p>e.g.</p>
 <blockquote>
-<div><p>Simply choose a number between 0 and 101, and set it as the ROS_DOMAIN_ID environment variable in your shell.</p>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>turtlesim<span class="w"> </span>turtlesim_code
+</pre></div>
+</div>
 </div></blockquote>
+<ol class="arabic" start="2">
+<li><p>ros2 node list</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>node<span class="w"> </span>list
+</pre></div>
+</div>
+<p>Show you the names of all running nodes.</p>
+</div></blockquote>
+</li>
+</ol>
 </section>
 </section>
 
@@ -154,8 +151,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Beginner CLI Tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="using_turtlesim_ros2_rqt.html" class="btn btn-neutral float-right" title="Using Turtlesim ROS2 rqt" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="using_turtlesim_ros2_rqt.html" class="btn btn-neutral float-left" title="Using Turtlesim ROS2 rqt" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../../blog/index.html" class="btn btn-neutral float-right" title="Blog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
