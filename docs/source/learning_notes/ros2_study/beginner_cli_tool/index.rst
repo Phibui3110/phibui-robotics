@@ -5,4 +5,7 @@ Beginner CLI Tools
    :maxdepth: 1
    :caption: Beginner CLI Tools
 
-   configuring_environment 
+   configuring_environment
+   using_turtlesim_ros2_rqt
+   understanding_nodes
+    
