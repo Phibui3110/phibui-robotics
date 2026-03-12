@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phase 1 - ROS2 Camera Foundation - Results &mdash; Phibui Robotics Lab 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="System Architecture" href="../../system/index.html" />
+    <link rel="prev" title="Phase 1 - ROS2 Camera Foundation - Process" href="phase1_process.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Phibui Robotics Lab
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Projects</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Projects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../autonomous_vehicle/index.html">Autonomous Vehicle</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">My graduation project</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="project_roadmap.html">Camera–IMU Assisted BEV Lane Following for Autonomous RC Car</a></li>
+<li class="toctree-l3"><a class="reference internal" href="project_roadmap.html#project-roadmap-8-weeks">Project Roadmap (8 Weeks)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="phase1_process.html">Phase 1 - ROS2 Camera Foundation - Process</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Phase 1 - ROS2 Camera Foundation - Results</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#objective">Objective</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-pipeline">System Pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#result-1-camera-publishing-ros2-images">Result 1 — Camera Publishing ROS2 Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#result-2-camera-visible-in-rviz">Result 2 — Camera Visible in RViz</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#result-3-python-node-can-read-images">Result 3 — Python Node Can Read Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#result-4-understand-the-camera-message-type">Result 4 — Understand the Camera Message Type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#result-5-convert-ros-image-to-opencv-image">Result 5 — Convert ROS Image to OpenCV Image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#result-6-record-camera-data-with-rosbag">Result 6 — Record Camera Data with rosbag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#result-7-ros2-camera-debugging-tools">Result 7 — ROS2 Camera Debugging Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workspace-structure">Workspace Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#phase-1-completion-checklist">Phase 1 Completion Checklist</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-phase-1-is-critical">Why Phase 1 Is Critical</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#next-phase">Next Phase</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">System Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../system/index.html">System Architecture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Learning Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../learning_notes/index.html">Learning Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Blog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">Blog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Phibui Robotics Lab</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Projects</a></li>
+          <li class="breadcrumb-item"><a href="index.html">My graduation project</a></li>
+      <li class="breadcrumb-item active">Phase 1 - ROS2 Camera Foundation - Results</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/projects/graduation_project/phase1_result.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="phase-1-ros2-camera-foundation-results">
+<h1>Phase 1 - ROS2 Camera Foundation - Results<a class="headerlink" href="#phase-1-ros2-camera-foundation-results" title="Link to this heading"></a></h1>
+<p>This document summarizes the results of <strong>Phase 1</strong> of the graduation project.</p>
+<section id="objective">
+<h2>Objective<a class="headerlink" href="#objective" title="Link to this heading"></a></h2>
+<p>The goal of Phase 1 is to build a <strong>complete ROS2 camera pipeline</strong> that allows the system to:</p>
+<ol class="arabic simple">
+<li><p>Capture images from the camera</p></li>
+<li><p>Publish images as a ROS2 topic</p></li>
+<li><p>Visualize the camera stream in RViz</p></li>
+<li><p>Access camera data inside a Python ROS2 node</p></li>
+<li><p>Record and replay camera data using rosbag</p></li>
+</ol>
+<p>Once this pipeline works reliably, the perception system can later integrate <strong>OpenCV processing, BEV transformation, and lane detection</strong>.</p>
+</section>
+<section id="system-pipeline">
+<h2>System Pipeline<a class="headerlink" href="#system-pipeline" title="Link to this heading"></a></h2>
+<p>The system should achieve the following data flow:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Raspberry Pi Camera
+       ↓
+  ROS2 camera node
+       ↓
+  /camera/image_raw
+       ↓
+   RViz visualization
+       ↓
+   Python subscriber node
+</pre></div>
+</div>
+</section>
+<section id="result-1-camera-publishing-ros2-images">
+<h2>Result 1 — Camera Publishing ROS2 Images<a class="headerlink" href="#result-1-camera-publishing-ros2-images" title="Link to this heading"></a></h2>
+<p>First, ensure the camera node publishes image data.</p>
+<p>Check available topics:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>topic<span class="w"> </span>list
+</pre></div>
+</div>
+<p>You should see topics similar to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">camera</span><span class="o">/</span><span class="n">image_raw</span>
+<span class="o">/</span><span class="n">camera</span><span class="o">/</span><span class="n">camera_info</span>
+</pre></div>
+</div>
+<p>Verify that data is being published:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/camera/image_raw
+</pre></div>
+</div>
+<p>Expected message type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sensor_msgs</span><span class="o">/</span><span class="n">msg</span><span class="o">/</span><span class="n">Image</span>
+</pre></div>
+</div>
+</section>
+<section id="result-2-camera-visible-in-rviz">
+<h2>Result 2 — Camera Visible in RViz<a class="headerlink" href="#result-2-camera-visible-in-rviz" title="Link to this heading"></a></h2>
+<p>Start RViz:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rviz2
+</pre></div>
+</div>
+<p>Add a display:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span>
+</pre></div>
+</div>
+<p>Set the topic:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">camera</span><span class="o">/</span><span class="n">image_raw</span>
+</pre></div>
+</div>
+<p>If the camera pipeline works correctly, RViz should display <strong>live video from the camera</strong>.</p>
+</section>
+<section id="result-3-python-node-can-read-images">
+<h2>Result 3 — Python Node Can Read Images<a class="headerlink" href="#result-3-python-node-can-read-images" title="Link to this heading"></a></h2>
+<p>Create a ROS2 Python node that subscribes to the camera topic.</p>
+<p>Example minimal subscriber node:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sensor_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">CameraSubscriber</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;camera_subscriber&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">subscription</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_subscription</span><span class="p">(</span>
+            <span class="n">Image</span><span class="p">,</span>
+            <span class="s1">&#39;/camera/image_raw&#39;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">listener_callback</span><span class="p">,</span>
+            <span class="mi">10</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">listener_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Received image&#39;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+
+    <span class="n">node</span> <span class="o">=</span> <span class="n">CameraSubscriber</span><span class="p">()</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+
+    <span class="n">node</span><span class="o">.</span><span class="n">destroy_node</span><span class="p">()</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Run the node and confirm that the terminal prints:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Received</span> <span class="n">image</span>
+<span class="n">Received</span> <span class="n">image</span>
+<span class="n">Received</span> <span class="n">image</span>
+</pre></div>
+</div>
+</section>
+<section id="result-4-understand-the-camera-message-type">
+<h2>Result 4 — Understand the Camera Message Type<a class="headerlink" href="#result-4-understand-the-camera-message-type" title="Link to this heading"></a></h2>
+<p>The topic <code class="docutils literal notranslate"><span class="pre">/camera/image_raw</span></code> publishes messages of type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sensor_msgs</span><span class="o">/</span><span class="n">msg</span><span class="o">/</span><span class="n">Image</span>
+</pre></div>
+</div>
+<p>Important fields inside this message include:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">height</span>
+<span class="n">width</span>
+<span class="n">encoding</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+<p>Understanding this message structure is important for converting images into OpenCV format later.</p>
+</section>
+<section id="result-5-convert-ros-image-to-opencv-image">
+<h2>Result 5 — Convert ROS Image to OpenCV Image<a class="headerlink" href="#result-5-convert-ros-image-to-opencv-image" title="Link to this heading"></a></h2>
+<p>Install the required bridge package:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-cv-bridge
+</pre></div>
+</div>
+<p>Example conversion:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">cv_bridge</span><span class="w"> </span><span class="kn">import</span> <span class="n">CvBridge</span>
+
+<span class="n">bridge</span> <span class="o">=</span> <span class="n">CvBridge</span><span class="p">()</span>
+<span class="n">cv_image</span> <span class="o">=</span> <span class="n">bridge</span><span class="o">.</span><span class="n">imgmsg_to_cv2</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="s2">&quot;bgr8&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This conversion allows the pipeline to become:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ROS Image → OpenCV Image → Computer Vision Processing
+</pre></div>
+</div>
+</section>
+<section id="result-6-record-camera-data-with-rosbag">
+<h2>Result 6 — Record Camera Data with rosbag<a class="headerlink" href="#result-6-record-camera-data-with-rosbag" title="Link to this heading"></a></h2>
+<p>Record camera data:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>bag<span class="w"> </span>record<span class="w"> </span>/camera/image_raw
+</pre></div>
+</div>
+<p>Stop recording using <code class="docutils literal notranslate"><span class="pre">Ctrl+C</span></code>.</p>
+<p>Replay the recorded data:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>bag<span class="w"> </span>play<span class="w"> </span>&lt;bag_folder&gt;
+</pre></div>
+</div>
+<p>This allows testing perception algorithms <strong>without requiring the physical camera</strong>.</p>
+</section>
+<section id="result-7-ros2-camera-debugging-tools">
+<h2>Result 7 — ROS2 Camera Debugging Tools<a class="headerlink" href="#result-7-ros2-camera-debugging-tools" title="Link to this heading"></a></h2>
+<p>Check topic frequency:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>topic<span class="w"> </span>hz<span class="w"> </span>/camera/image_raw
+</pre></div>
+</div>
+<p>Example output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">average</span> <span class="n">rate</span><span class="p">:</span> <span class="mf">30.1</span> <span class="n">Hz</span>
+</pre></div>
+</div>
+<p>Inspect the message definition:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>interface<span class="w"> </span>show<span class="w"> </span>sensor_msgs/msg/Image
+</pre></div>
+</div>
+<p>Visualize node connections:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rqt_graph
+</pre></div>
+</div>
+<p>Expected graph structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>camera_node → /camera/image_raw → camera_subscriber
+</pre></div>
+</div>
+</section>
+<section id="workspace-structure">
+<h2>Workspace Structure<a class="headerlink" href="#workspace-structure" title="Link to this heading"></a></h2>
+<p>By the end of Phase 1, your ROS2 workspace may look like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ros2_ws/
+ ├── src/
+ │   ├── camera_driver
+ │   └── camera_subscriber
+ │
+ ├── build
+ ├── install
+ └── log
+</pre></div>
+</div>
+<p>Inside <code class="docutils literal notranslate"><span class="pre">camera_subscriber</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>camera_subscriber/
+ ├── package.xml
+ ├── setup.py
+ └── camera_subscriber/
+     └── camera_subscriber.py
+</pre></div>
+</div>
+</section>
+<section id="phase-1-completion-checklist">
+<h2>Phase 1 Completion Checklist<a class="headerlink" href="#phase-1-completion-checklist" title="Link to this heading"></a></h2>
+<p>Phase 1 is complete when the following conditions are satisfied:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="p">]</span> <span class="n">Camera</span> <span class="n">publishes</span> <span class="o">/</span><span class="n">camera</span><span class="o">/</span><span class="n">image_raw</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">RViz</span> <span class="n">displays</span> <span class="n">the</span> <span class="n">live</span> <span class="n">camera</span> <span class="n">stream</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">Python</span> <span class="n">node</span> <span class="n">successfully</span> <span class="n">subscribes</span> <span class="n">to</span> <span class="n">images</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">ROS</span> <span class="n">images</span> <span class="n">convert</span> <span class="n">to</span> <span class="n">OpenCV</span> <span class="n">images</span> <span class="n">using</span> <span class="n">cv_bridge</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">rosbag</span> <span class="n">records</span> <span class="ow">and</span> <span class="n">replays</span> <span class="n">camera</span> <span class="n">data</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">rqt_graph</span> <span class="n">shows</span> <span class="n">the</span> <span class="n">node</span> <span class="n">connections</span>
+</pre></div>
+</div>
+<p>Once all items are completed, <strong>Phase 1 is finished</strong>.</p>
+</section>
+<section id="why-phase-1-is-critical">
+<h2>Why Phase 1 Is Critical<a class="headerlink" href="#why-phase-1-is-critical" title="Link to this heading"></a></h2>
+<p>All future perception components depend on this camera pipeline.</p>
+<p>The future perception system will follow this architecture:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Camera
+   ↓
+ROS2 Image
+   ↓
+OpenCV Processing
+   ↓
+BEV Transformation
+   ↓
+Lane Detection
+   ↓
+Vehicle Control
+</pre></div>
+</div>
+<p>If the camera pipeline is unstable, the later perception stages will fail.</p>
+</section>
+<section id="next-phase">
+<h2>Next Phase<a class="headerlink" href="#next-phase" title="Link to this heading"></a></h2>
+<p>After completing Phase 1, the next step is:</p>
+<p><strong>Phase 2 — OpenCV Lane Detection</strong></p>
+<p>Pipeline:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ROS Image
+   ↓
+cv_bridge
+   ↓
+OpenCV Image
+   ↓
+Lane Detection
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="phase1_process.html" class="btn btn-neutral float-left" title="Phase 1 - ROS2 Camera Foundation - Process" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../system/index.html" class="btn btn-neutral float-right" title="System Architecture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Bui Nhat Phi.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

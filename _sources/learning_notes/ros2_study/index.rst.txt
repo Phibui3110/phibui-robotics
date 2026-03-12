@@ -5,3 +5,4 @@ ROS2 Study
    :caption: ROS2 Study
 
    beginner_cli_tool/index
+   beginner_cli_library/index
