@@ -1,0 +1,591 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lộ trình 6 tuần cho đồ án xe tự lái &mdash; Phibui Robotics Lab 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Chi tiết Tuần 1: Calibration &amp; Bird-eye View" href="week1.html" />
+    <link rel="prev" title="Chi tiết Tuần 1: Calibration &amp; Bird-eye View" href="../vietnamese_version/tuan6.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Phibui Robotics Lab
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Projects</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Projects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../autonomous_vehicle/index.html">Autonomous Vehicle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vietnamese_version/roadmap.html">Lộ trình 6 tuần cho đồ án xe tự lái</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lộ trình 6 tuần cho đồ án xe tự lái</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tong-quan">Tổng quan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nguyen-tac-cot-loi">Nguyên tắc cốt lõi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kien-truc-he-thong">Kiến trúc hệ thống</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="week1.html">Chi tiết Tuần 1: Calibration &amp; Bird-eye View</a></li>
+<li class="toctree-l4"><a class="reference internal" href="week2.html">Chi tiết Tuần 1: Calibration &amp; Bird-eye View</a></li>
+<li class="toctree-l4"><a class="reference internal" href="week3.html">Chi tiết Tuần 1: Calibration &amp; Bird-eye View</a></li>
+<li class="toctree-l4"><a class="reference internal" href="week4.html">Chi tiết Tuần 1: Calibration &amp; Bird-eye View</a></li>
+<li class="toctree-l4"><a class="reference internal" href="week5.html">Chi tiết Tuần 1: Calibration &amp; Bird-eye View</a></li>
+<li class="toctree-l4"><a class="reference internal" href="week6.html">Chi tiết Tuần 1: Calibration &amp; Bird-eye View</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tuan-1-calibration-camera-bird-eye-view">Tuần 1: Calibration camera &amp; Bird-eye view</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#muc-tieu">Mục tiêu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deliverables">Deliverables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cong-viec">Công việc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#luu-y">Lưu ý</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tuan-2-lane-detection">Tuần 2: Lane Detection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Mục tiêu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Deliverables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pipeline">Pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Công việc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Lưu ý</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tuan-3-centerline-stabilization">Tuần 3: Centerline &amp; Stabilization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Mục tiêu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Deliverables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Công việc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Lưu ý</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tuan-4-trajectory-generation-cot-loi">Tuần 4: Trajectory Generation (CỐT LÕI)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Mục tiêu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Deliverables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">Công việc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">Lưu ý</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tuan-5-tich-hop-nmpc-simulation">Tuần 5: Tích hợp NMPC (Simulation)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id13">Mục tiêu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">Deliverables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">Công việc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">Lưu ý</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tuan-6-chay-xe-thuc-toi-uu">Tuần 6: Chạy xe thực &amp; tối ưu</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id17">Mục tiêu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">Deliverables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id19">Công việc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id20">Lưu ý</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mo-rong-tuy-chon">Mở rộng (tuỳ chọn)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tranh-vat-can">Tránh vật cản</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#visual-odometry">Visual Odometry</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#kpi-tung-tuan">KPI từng tuần</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ghi-chu-cuoi">Ghi chú cuối</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">System Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../system/index.html">System Architecture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Learning Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning_notes/index.html">Learning Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Blog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/index.html">Blog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Phibui Robotics Lab</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Projects</a></li>
+      <li class="breadcrumb-item active">Lộ trình 6 tuần cho đồ án xe tự lái</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/projects/graduation_project/english_version/roadmap.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lo-trinh-6-tuan-cho-do-an-xe-tu-lai">
+<h1>Lộ trình 6 tuần cho đồ án xe tự lái<a class="headerlink" href="#lo-trinh-6-tuan-cho-do-an-xe-tu-lai" title="Link to this heading"></a></h1>
+<p>Tác giả: Bùi Nhật Phi
+Định hướng: Research-oriented development
+Mốc hoàn thành: 30/04/2026</p>
+<section id="tong-quan">
+<h2>Tổng quan<a class="headerlink" href="#tong-quan" title="Link to this heading"></a></h2>
+<p>Tài liệu này mô tả lộ trình phát triển trong 6 tuần để xây dựng hệ thống xe tự lái hoàn chỉnh:</p>
+<blockquote>
+<div><p>Perception → State Estimation → Planning → NMPC Control → Vehicle</p>
+</div></blockquote>
+<p>Mục tiêu chính:</p>
+<blockquote>
+<div><p>Xây dựng hệ thống end-to-end hoạt động:
+Camera → Lane Detection → Trajectory → NMPC → Xe thực</p>
+</div></blockquote>
+</section>
+<section id="nguyen-tac-cot-loi">
+<h2>Nguyên tắc cốt lõi<a class="headerlink" href="#nguyen-tac-cot-loi" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Sử dụng <strong>computer vision truyền thống (không deep learning)</strong></p></li>
+<li><p>Tập trung vào <strong>trajectory generation (planning)</strong></p></li>
+<li><p>NMPC chỉ dùng để <strong>bám quỹ đạo (tracking)</strong></p></li>
+<li><p>Tránh over-engineering giai đoạn đầu (SLAM, VO)</p></li>
+</ul>
+</section>
+<section id="kien-truc-he-thong">
+<h2>Kiến trúc hệ thống<a class="headerlink" href="#kien-truc-he-thong" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Camera + IMU
+     ↓
+[Perception]
+     ↓
+[State Estimation]
+     ↓
+[Local Planning]  ← PHẦN QUAN TRỌNG NHẤT
+     ↓
+[NMPC Controller]
+     ↓
+Actuators (servo + motor)
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Chi tiết từng tuần</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="week1.html">Chi tiết Tuần 1: Calibration &amp; Bird-eye View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week2.html">Chi tiết Tuần 1: Calibration &amp; Bird-eye View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week3.html">Chi tiết Tuần 1: Calibration &amp; Bird-eye View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week4.html">Chi tiết Tuần 1: Calibration &amp; Bird-eye View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week5.html">Chi tiết Tuần 1: Calibration &amp; Bird-eye View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week6.html">Chi tiết Tuần 1: Calibration &amp; Bird-eye View</a></li>
+</ul>
+</div>
+</section>
+<section id="tuan-1-calibration-camera-bird-eye-view">
+<span id="week1"></span><h2>Tuần 1: Calibration camera &amp; Bird-eye view<a class="headerlink" href="#tuan-1-calibration-camera-bird-eye-view" title="Link to this heading"></a></h2>
+<section id="muc-tieu">
+<h3>Mục tiêu<a class="headerlink" href="#muc-tieu" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Tạo được ảnh nhìn từ trên xuống (bird-eye view)</p></li>
+<li><p>Loại bỏ méo ảnh (distortion)</p></li>
+</ul>
+</section>
+<section id="deliverables">
+<h3>Deliverables<a class="headerlink" href="#deliverables" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Tham số calibration camera</p></li>
+<li><p>Pipeline undistort</p></li>
+<li><p>Perspective transform hoạt động</p></li>
+<li><p>ROS2 camera node</p></li>
+</ul>
+</section>
+<section id="cong-viec">
+<h3>Công việc<a class="headerlink" href="#cong-viec" title="Link to this heading"></a></h3>
+<ul>
+<li><p>Chụp ~20 ảnh checkerboard</p></li>
+<li><p>Dùng OpenCV:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cv2.calibrateCamera</span></code></p></li>
+<li><p>Lưu camera matrix và distortion coefficients</p></li>
+</ul>
+</li>
+<li><p>Implement undistort</p></li>
+<li><p>Xác định ROI (4 điểm)</p></li>
+<li><p>Warp perspective:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">getPerspectiveTransform</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Tích hợp ROS2</p></li>
+<li><p>Visualize bằng RViz2</p></li>
+</ul>
+</section>
+<section id="luu-y">
+<h3>Lưu ý<a class="headerlink" href="#luu-y" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Sai perspective → lane bị cong</p></li>
+<li><p>Không xử lý distortion → lỗi dây chuyền về sau</p></li>
+</ul>
+<p>—</p>
+</section>
+</section>
+<section id="tuan-2-lane-detection">
+<span id="week2"></span><h2>Tuần 2: Lane Detection<a class="headerlink" href="#tuan-2-lane-detection" title="Link to this heading"></a></h2>
+<section id="id1">
+<h3>Mục tiêu<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Detect lane ổn định ~80%</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>Deliverables<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Binary lane mask</p></li>
+<li><p>Tách được left/right lane</p></li>
+</ul>
+</section>
+<section id="pipeline">
+<h3>Pipeline<a class="headerlink" href="#pipeline" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Image
+→ Grayscale
+→ Gaussian Blur
+→ Canny Edge
+→ Threshold (white)
+→ Combine
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h3>Công việc<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<ul>
+<li><p>Tune threshold</p></li>
+<li><p>Morphology (erode/dilate)</p></li>
+<li><p>Implement sliding window:</p>
+<ul class="simple">
+<li><p>Histogram phần dưới ảnh</p></li>
+<li><p>Track lane pixel</p></li>
+</ul>
+</li>
+<li><p>Fit polynomial:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">y</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">c</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="id4">
+<h3>Lưu ý<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Noise gây sai lane</p></li>
+<li><p>Lane bị đứt</p></li>
+</ul>
+<p>Cách xử lý:
+- Smoothing
+- Dùng thông tin frame trước</p>
+<p>—</p>
+</section>
+</section>
+<section id="tuan-3-centerline-stabilization">
+<span id="week3"></span><h2>Tuần 3: Centerline &amp; Stabilization<a class="headerlink" href="#tuan-3-centerline-stabilization" title="Link to this heading"></a></h2>
+<section id="id5">
+<h3>Mục tiêu<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Tạo centerline mượt, không rung</p></li>
+</ul>
+</section>
+<section id="id6">
+<h3>Deliverables<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Centerline curve</p></li>
+<li><p>Visualization trên RViz</p></li>
+</ul>
+</section>
+<section id="id7">
+<h3>Công việc<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<ul>
+<li><p>Tính centerline:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">center</span> <span class="o">=</span> <span class="p">(</span><span class="n">left_lane</span> <span class="o">+</span> <span class="n">right_lane</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</li>
+<li><p>Smoothing:</p>
+<ul class="simple">
+<li><p>Moving average</p></li>
+<li><p>Exponential smoothing</p></li>
+</ul>
+</li>
+<li><p>Temporal filtering</p></li>
+<li><p>Xử lý khi mất 1 lane</p></li>
+</ul>
+</section>
+<section id="id8">
+<h3>Lưu ý<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Jitter → NMPC mất ổn định</p></li>
+<li><p>Mất lane → xe lệch hướng</p></li>
+</ul>
+<p>—</p>
+</section>
+</section>
+<section id="tuan-4-trajectory-generation-cot-loi">
+<span id="week4"></span><h2>Tuần 4: Trajectory Generation (CỐT LÕI)<a class="headerlink" href="#tuan-4-trajectory-generation-cot-loi" title="Link to this heading"></a></h2>
+<section id="id9">
+<h3>Mục tiêu<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<p>Chuyển centerline thành trajectory cho NMPC</p>
+</section>
+<section id="id10">
+<h3>Deliverables<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>ROS2 trajectory message</p></li>
+<li><p>Bao gồm:</p>
+<ul>
+<li><p>x, y</p></li>
+<li><p>yaw</p></li>
+<li><p>vận tốc tham chiếu</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id11">
+<h3>Công việc<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<ul>
+<li><p>Sample N điểm (10-20)</p></li>
+<li><p>Tính yaw:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yaw_i</span> <span class="o">=</span> <span class="n">atan2</span><span class="p">(</span><span class="n">y_</span><span class="p">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">}</span> <span class="o">-</span> <span class="n">y_i</span><span class="p">,</span> <span class="n">x_</span><span class="p">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">}</span> <span class="o">-</span> <span class="n">x_i</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Thiết kế velocity profile:</p>
+<ul class="simple">
+<li><p>Đường thẳng → nhanh</p></li>
+<li><p>Đường cong → chậm</p></li>
+</ul>
+</li>
+<li><p>Implement node:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">planner_node</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="id12">
+<h3>Lưu ý<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Trajectory không mượt → NMPC fail</p></li>
+<li><p>Ít điểm → xe chạy giật</p></li>
+</ul>
+<p>—</p>
+</section>
+</section>
+<section id="tuan-5-tich-hop-nmpc-simulation">
+<span id="week5"></span><h2>Tuần 5: Tích hợp NMPC (Simulation)<a class="headerlink" href="#tuan-5-tich-hop-nmpc-simulation" title="Link to this heading"></a></h2>
+<section id="id13">
+<h3>Mục tiêu<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Hệ thống chạy closed-loop trong Gazebo</p></li>
+</ul>
+</section>
+<section id="id14">
+<h3>Deliverables<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Hệ thống hoàn chỉnh trong simulation</p></li>
+</ul>
+</section>
+<section id="id15">
+<h3>Công việc<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<ul>
+<li><p>Định nghĩa ROS2 topics:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">state</span>
+<span class="o">/</span><span class="n">trajectory</span>
+<span class="o">/</span><span class="n">control_cmd</span>
+</pre></div>
+</div>
+</li>
+<li><p>Đồng bộ tần số (10-20 Hz)</p></li>
+<li><p>Tune NMPC:</p>
+<ul class="simple">
+<li><p>Q matrix</p></li>
+<li><p>R matrix</p></li>
+</ul>
+</li>
+<li><p>Debug hệ tọa độ</p></li>
+</ul>
+</section>
+<section id="id16">
+<h3>Lưu ý<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Delay → dao động</p></li>
+<li><p>Sai frame → điều khiển sai</p></li>
+</ul>
+<p>—</p>
+</section>
+</section>
+<section id="tuan-6-chay-xe-thuc-toi-uu">
+<span id="week6"></span><h2>Tuần 6: Chạy xe thực &amp; tối ưu<a class="headerlink" href="#tuan-6-chay-xe-thuc-toi-uu" title="Link to this heading"></a></h2>
+<section id="id17">
+<h3>Mục tiêu<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Xe chạy ổn định ngoài thực tế</p></li>
+</ul>
+</section>
+<section id="id18">
+<h3>Deliverables<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Video demo</p></li>
+<li><p>Đánh giá hiệu năng</p></li>
+</ul>
+</section>
+<section id="id19">
+<h3>Công việc<a class="headerlink" href="#id19" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Deploy lên Raspberry Pi 5</p></li>
+<li><p>Tối ưu CPU</p></li>
+<li><p>Tune ga và lái</p></li>
+<li><p>Test:</p>
+<ul>
+<li><p>Ánh sáng khác nhau</p></li>
+<li><p>Lane xấu</p></li>
+</ul>
+</li>
+<li><p>Record video</p></li>
+</ul>
+</section>
+<section id="id20">
+<h3>Lưu ý<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Độ trễ phần cứng</p></li>
+<li><p>Nhiễu môi trường</p></li>
+</ul>
+<p>—</p>
+</section>
+</section>
+<section id="mo-rong-tuy-chon">
+<h2>Mở rộng (tuỳ chọn)<a class="headerlink" href="#mo-rong-tuy-chon" title="Link to this heading"></a></h2>
+<section id="tranh-vat-can">
+<h3>Tránh vật cản<a class="headerlink" href="#tranh-vat-can" title="Link to this heading"></a></h3>
+<ul>
+<li><p>Detect object</p></li>
+<li><p>Dịch trajectory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>centerline → offset
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="visual-odometry">
+<h3>Visual Odometry<a class="headerlink" href="#visual-odometry" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>ORB-based tracking (nếu còn thời gian)</p></li>
+</ul>
+<p>—</p>
+</section>
+</section>
+<section id="kpi-tung-tuan">
+<h2>KPI từng tuần<a class="headerlink" href="#kpi-tung-tuan" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tuần</p></th>
+<th class="head"><p>KPI</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Bird-eye view đúng</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Lane detection ổn định</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Centerline mượt</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Trajectory hợp lệ</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Simulation chạy được</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Xe thực chạy được</p></td>
+</tr>
+</tbody>
+</table>
+<p>—</p>
+</section>
+<section id="ghi-chu-cuoi">
+<h2>Ghi chú cuối<a class="headerlink" href="#ghi-chu-cuoi" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>KHÔNG bỏ qua phần planning (trajectory)</p></li>
+<li><p>Không tối ưu quá sớm</p></li>
+<li><p>Luôn visualize (RViz, overlay)</p></li>
+<li><p>Debug từng module, không debug toàn hệ thống cùng lúc</p></li>
+</ul>
+<p>Kết thúc tài liệu</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../vietnamese_version/tuan6.html" class="btn btn-neutral float-left" title="Chi tiết Tuần 1: Calibration &amp; Bird-eye View" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="week1.html" class="btn btn-neutral float-right" title="Chi tiết Tuần 1: Calibration &amp; Bird-eye View" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Bui Nhat Phi.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -8,8 +8,9 @@ perception algorithms, control systems, and experiments.
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Robotics Projects
 
    autonomous_vehicle/index
-   graduation_project/index
+   graduation_project/vietnamese_version/roadmap
+   graduation_project/english_version/roadmap
