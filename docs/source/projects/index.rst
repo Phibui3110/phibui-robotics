@@ -12,5 +12,5 @@ perception algorithms, control systems, and experiments.
    :caption: Robotics Projects
 
    autonomous_vehicle/index
-   graduation_project/vietnamese_version/roadmap
-   graduation_project/english_version/roadmap
+   graduation_project/vietnamese_version/roadmap_vn
+   graduation_project/english_version/roadmap_en
