@@ -23,4 +23,5 @@ These notes summarize knowledge learned from:
 
    build_website/index
    robotics_roadmap/index
-   ros2_study/index 
+   ros2_study/index
+   graduation_project/index 
