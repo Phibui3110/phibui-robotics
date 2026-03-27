@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Robotics Roadmap &mdash; Phibui Robotics Lab 0.1 documentation</title>
+  <title>Camera_calibration &mdash; Phibui Robotics Lab 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -24,8 +24,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Lộ trình học Robotics" href="robotics_roadmap_vn.html" />
-    <link rel="prev" title="Hướng Dẫn Sử Dụng Website Documentation" href="../build_website/website_guide_vn.html" /> 
+    <link rel="next" title="Blog" href="../../blog/index.html" />
+    <link rel="prev" title="Everything about my graduation project" href="../graduation_project/index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -64,14 +64,14 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Learning Notes</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../build_website/index.html">Building the Robotics Documentation Website</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Robotics Roadmap</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="robotics_roadmap_vn.html">Lộ trình học Robotics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="robotics_roadmap.html">Robotics Learning Roadmap</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../robotics_roadmap/index.html">Robotics Roadmap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ros2_study/index.html">ROS2 Study</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../graduation_project/index.html">Everything about my graduation project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_camera_calibration/camera_calibration_shreenayar.html">Camera_calibration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Camera_calibration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#topics">Topics</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -95,9 +95,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Learning Notes</a></li>
-      <li class="breadcrumb-item active">Robotics Roadmap</li>
+      <li class="breadcrumb-item active">Camera_calibration</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/learning_notes/robotics_roadmap/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/learning_notes/1_camera_calibration/camera_calibration_shreenayar.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -105,47 +105,44 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="robotics-roadmap">
-<h1>Robotics Roadmap<a class="headerlink" href="#robotics-roadmap" title="Link to this heading"></a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Robotics Roadmap</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="robotics_roadmap_vn.html">Lộ trình học Robotics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="robotics_roadmap_vn.html#boi-canh-du-an">Bối cảnh dự án</a></li>
-<li class="toctree-l2"><a class="reference internal" href="robotics_roadmap_vn.html#boi-canh-hien-tai">Bối cảnh hiện tại</a></li>
-<li class="toctree-l2"><a class="reference internal" href="robotics_roadmap_vn.html#huong-nghien-cuu">Hướng nghiên cứu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="robotics_roadmap_vn.html#kien-truc-he-thong">Kiến trúc hệ thống</a></li>
-<li class="toctree-l2"><a class="reference internal" href="robotics_roadmap_vn.html#moi-truong-mo-phong">Môi trường mô phỏng</a></li>
-<li class="toctree-l2"><a class="reference internal" href="robotics_roadmap_vn.html#he-thong-hardware-that">Hệ thống hardware thật</a></li>
-<li class="toctree-l2"><a class="reference internal" href="robotics_roadmap_vn.html#muc-tieu-nghien-cuu">Mục tiêu nghiên cứu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="robotics_roadmap_vn.html#thiet-ke-thi-nghiem">Thiết kế thí nghiệm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="robotics_roadmap_vn.html#lo-trinh-phat-trien">Lộ trình phát triển</a></li>
-<li class="toctree-l2"><a class="reference internal" href="robotics_roadmap_vn.html#ket-qua-ky-vong">Kết quả kỳ vọng</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="robotics_roadmap.html">Robotics Learning Roadmap</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="robotics_roadmap.html#project-context">Project Context</a></li>
-<li class="toctree-l2"><a class="reference internal" href="robotics_roadmap.html#current-background">Current Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="robotics_roadmap.html#research-direction">Research Direction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="robotics_roadmap.html#system-architecture">System Architecture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="robotics_roadmap.html#simulation-environment">Simulation Environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="robotics_roadmap.html#real-hardware-system">Real Hardware System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="robotics_roadmap.html#research-objective">Research Objective</a></li>
-<li class="toctree-l2"><a class="reference internal" href="robotics_roadmap.html#experiment-design">Experiment Design</a></li>
-<li class="toctree-l2"><a class="reference internal" href="robotics_roadmap.html#development-roadmap">Development Roadmap</a></li>
-<li class="toctree-l2"><a class="reference internal" href="robotics_roadmap.html#expected-outcomes">Expected Outcomes</a></li>
-</ul>
-</li>
-</ul>
-</div>
+  <section id="camera-calibration">
+<h1>Camera_calibration<a class="headerlink" href="#camera-calibration" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The key problems in computer vision: recovering the three dimensional structure  a scene from its images.</p>
+<p>Coordinate frame (hệ quy chiếu).</p>
+<p>e.g.
+- You have a scene in coordinate frame.
+- You would like to know where each point lies in this fram, in milimeters.
+- But what you have at your disposal are images of scene where points are measured in term of pixels.</p>
+<p>=&gt; Images -&gt; A full metric reconstruction:
+1. The position and orientation of the camera with respect to the world coordinate frame - external parameter of the camera.
+2. How the camera maps the perspective projection points in the world onto its image plane - internal parameters of the camera (focal length).</p>
+<p>=&gt; Determining these 2 things (extenal &amp; internal parameters) is called camera calibration.</p>
+<p>Method to find a camera’s internal and external parameters.</p>
+</section>
+<section id="topics">
+<h2>Topics<a class="headerlink" href="#topics" title="Link to this heading"></a></h2>
+<p># We first need a model for the camera - camera model or a forward imaging model which takes you from a point in 3D to its projection in pixels in the image.
+1. Linear Camera Model.
+# Linear camera model - projection matrix.
+2. Camera Calibration.
+# Take a single picture of an object of know geometry to fully calibrate the camera =&gt; determine the projection matrix in full.
+3. Extracting Intrinsic and Extrinsic Matrices.
+# Tear projection matrix to figure out both internal and external parameters of the camera.
+# This call intrinsic and extrinsic matrices =&gt; full calibration
+4. Example Application: Simple Stereo.
+# Simple example of how we use a calibratied camera to recontruct a three dimensional scene.
+# 2 camera: 1 is in a particular location &amp; 2 is displace in the horizional direction by some amount.</p>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../build_website/website_guide_vn.html" class="btn btn-neutral float-left" title="Hướng Dẫn Sử Dụng Website Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="robotics_roadmap_vn.html" class="btn btn-neutral float-right" title="Lộ trình học Robotics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../graduation_project/index.html" class="btn btn-neutral float-left" title="Everything about my graduation project" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../blog/index.html" class="btn btn-neutral float-right" title="Blog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
